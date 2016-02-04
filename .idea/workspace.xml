@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aac9de18-3d34-4bec-b79e-8eedffe031fd" name="Default" comment="" />
+    <ignored path="scientist.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="scientist" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Matcher.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Matchers/Matcher.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.18896714">
+              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/helpers.php" />
+        <option value="$PROJECT_DIR$/phpunit.xml" />
+        <option value="$PROJECT_DIR$/src/Lab.php" />
+        <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/src/Result.php" />
+        <option value="$PROJECT_DIR$/tests/LaboratoryTest.php" />
+        <option value="$PROJECT_DIR$/tests/stubs/StaticJournal.php" />
+        <option value="$PROJECT_DIR$/src/Journal.php" />
+        <option value="$PROJECT_DIR$/src/Intern.php" />
+        <option value="$PROJECT_DIR$/tests/ExecutionTest.php" />
+        <option value="$PROJECT_DIR$/src/Execution.php" />
+        <option value="$PROJECT_DIR$/src/Journals/Journal.php" />
+        <option value="$PROJECT_DIR$/src/Journals/StandardJournal.php" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/tests/ExampleTest.php" />
+        <option value="$PROJECT_DIR$/src/Laboratory.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Experiment.php" />
+        <option value="$PROJECT_DIR$/tests/ExperimentTest.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/tests/InternTest.php" />
+        <option value="$PROJECT_DIR$/tests/JournalTest.php" />
+        <option value="$PROJECT_DIR$/tests/ResultTest.php" />
+        <option value="$PROJECT_DIR$/tests/Matchers/StandardMatcherTest.php" />
+        <option value="$PROJECT_DIR$/src/Matchers/StandardMatcher.php" />
+        <option value="$PROJECT_DIR$/src/Matchers/Matcher.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scientist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scientist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scientist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scientist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scientist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="true" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aac9de18-3d34-4bec-b79e-8eedffe031fd" name="Default" comment="" />
+      <created>1454583318015</created>
+      <option name="number" value="Default" />
+      <updated>1454583318015</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40492958">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding>
+            <marker date="1454584821000" expanded="true" signature="69:523" placeholder="..." />
+            <marker date="1454584821000" expanded="true" signature="384:512" placeholder="..." />
+            <marker date="1454584821000" expanded="true" signature="432:494" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21596244">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding>
+            <marker date="1454605559000" expanded="true" signature="14:79" placeholder="php:" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="40" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
+          <folding>
+            <marker date="1454605572000" expanded="true" signature="40:967" placeholder="..." />
+            <marker date="1454605572000" expanded="true" signature="106:371" placeholder="..." />
+            <marker date="1454605572000" expanded="true" signature="228:357" placeholder="..." />
+            <marker date="1454605572000" expanded="true" signature="434:618" placeholder="..." />
+            <marker date="1454605572000" expanded="true" signature="556:604" placeholder="..." />
+            <marker date="1454605572000" expanded="true" signature="683:860" placeholder="..." />
+            <marker date="1454605572000" expanded="true" signature="794:846" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11151515">
+          <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Laboratory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1866198">
+          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+          <folding>
+            <marker date="1454606793000" expanded="true" signature="65:213" placeholder=" Class Laboratory ..." />
+            <marker date="1454606793000" expanded="true" signature="232:2423" placeholder="{...}" />
+            <marker date="1454606793000" expanded="true" signature="242:317" placeholder=" Collection of journals to report to. ..." />
+            <marker date="1454606793000" expanded="true" signature="358:471" placeholder=" Register a collection of journals. ..." />
+            <marker date="1454606793000" expanded="true" signature="527:599" placeholder="{...}" />
+            <marker date="1454606793000" expanded="true" signature="608:731" placeholder=" Register a new journal. ..." />
+            <marker date="1454606793000" expanded="true" signature="782:855" placeholder="{...}" />
+            <marker date="1454606793000" expanded="true" signature="864:934" placeholder=" Retrieve registers journals. ..." />
+            <marker date="1454606793000" expanded="true" signature="970:1014" placeholder="{...}" />
+            <marker date="1454606793000" expanded="true" signature="1023:1122" placeholder=" Start a new experiment. ..." />
+            <marker date="1454606793000" expanded="true" signature="1162:1236" placeholder="{...}" />
+            <marker date="1454606793000" expanded="true" signature="1245:1360" placeholder=" Run an experiment. ..." />
+            <marker date="1454606793000" expanded="true" signature="1420:1665" placeholder="{...}" />
+            <marker date="1454606793000" expanded="true" signature="1466:1579" placeholder="..." />
+            <marker date="1454606793000" expanded="true" signature="1587:1658" placeholder="..." />
+            <marker date="1454606793000" expanded="true" signature="1674:1823" placeholder=" Run an experiment and return the result. ..." />
+            <marker date="1454606793000" expanded="true" signature="1879:2020" placeholder="{...}" />
+            <marker date="1454606793000" expanded="true" signature="2029:2217" placeholder=" Report experiment result to registered journals. ..." />
+            <marker date="1454606793000" expanded="true" signature="2299:2421" placeholder="{...}" />
+            <marker date="1454606793000" expanded="true" signature="2353:2414" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026995305">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <marker date="1454596958000" expanded="true" signature="32:170" placeholder=" Class Result ..." />
+            <marker date="1454596958000" expanded="true" signature="185:1591" placeholder="{...}" />
+            <marker date="1454596958000" expanded="true" signature="195:255" placeholder=" The experiment name. ..." />
+            <marker date="1454596958000" expanded="true" signature="287:372" placeholder=" The control execution instance. ..." />
+            <marker date="1454596958000" expanded="true" signature="407:476" placeholder=" The trial execution instances. ..." />
+            <marker date="1454596958000" expanded="true" signature="515:693" placeholder=" Create a new result instance. ..." />
+            <marker date="1454596958000" expanded="true" signature="774:887" placeholder="{...}" />
+            <marker date="1454596958000" expanded="true" signature="896:963" placeholder=" Get the experiment name. ..." />
+            <marker date="1454596958000" expanded="true" signature="992:1032" placeholder="{...}" />
+            <marker date="1454596958000" expanded="true" signature="1041:1133" placeholder=" Get the control execution instance. ..." />
+            <marker date="1454596958000" expanded="true" signature="1165:1208" placeholder="{...}" />
+            <marker date="1454596958000" expanded="true" signature="1217:1347" placeholder=" Get a trial execution instance by name. ..." />
+            <marker date="1454596958000" expanded="true" signature="1382:1431" placeholder="{...}" />
+            <marker date="1454596958000" expanded="true" signature="1440:1516" placeholder=" Get the trial execution instances. ..." />
+            <marker date="1454596958000" expanded="true" signature="1547:1589" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5669014">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05399061">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.18896714">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5938967">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <marker date="1454607687000" expanded="true" signature="0:623" placeholder="{&quot;name&quot;: &quot;daylerees/scientist&quot;...}" />
+            <marker date="1454607687000" expanded="true" signature="254:355" placeholder="[...]" />
+            <marker date="1454607687000" expanded="true" signature="264:349" placeholder="{&quot;name&quot;: &quot;Dayle Rees&quot;...}" />
+            <marker date="1454607687000" expanded="true" signature="395:534" placeholder="{&quot;phpunit/phpunit&quot;: &quot;^5.1&quot;...}" />
+            <marker date="1454607687000" expanded="true" signature="552:621" placeholder="{...}" />
+            <marker date="1454607687000" expanded="true" signature="571:615" placeholder="{&quot;Scientist\&quot;: &quot;src&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/LaboratoryTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29694834">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1454598505000" expanded="true" signature="89:190" placeholder="{...}" />
+            <marker date="1454598505000" expanded="true" signature="145:188" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ResultTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.91784036">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding>
+            <marker date="1454608823000" expanded="true" signature="11:53" placeholder="..." />
+            <marker date="1454608823000" expanded="true" signature="106:1161" placeholder="{...}" />
+            <marker date="1454608823000" expanded="true" signature="162:267" placeholder="{...}" />
+            <marker date="1454608823000" expanded="true" signature="327:481" placeholder="{...}" />
+            <marker date="1454608823000" expanded="true" signature="543:775" placeholder="{...}" />
+            <marker date="1454608823000" expanded="true" signature="836:1159" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ExperimentTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7570422">
+          <caret line="73" column="74" selection-start-line="73" selection-start-column="74" selection-end-line="73" selection-end-column="74" />
+          <folding>
+            <marker date="1454607625000" expanded="true" signature="11:72" placeholder="..." />
+            <marker date="1454607625000" expanded="true" signature="129:2138" placeholder="{...}" />
+            <marker date="1454607625000" expanded="true" signature="195:311" placeholder="{...}" />
+            <marker date="1454607625000" expanded="true" signature="367:490" placeholder="{...}" />
+            <marker date="1454607625000" expanded="true" signature="557:772" placeholder="{...}" />
+            <marker date="1454607625000" expanded="true" signature="644:678" placeholder="..." />
+            <marker date="1454607625000" expanded="true" signature="837:1058" placeholder="{...}" />
+            <marker date="1454607625000" expanded="true" signature="922:956" placeholder="..." />
+            <marker date="1454607625000" expanded="true" signature="1131:1697" placeholder="{...}" />
+            <marker date="1454607625000" expanded="true" signature="1216:1253" placeholder="..." />
+            <marker date="1454607625000" expanded="true" signature="1287:1325" placeholder="..." />
+            <marker date="1454607625000" expanded="true" signature="1358:1395" placeholder="..." />
+            <marker date="1454607625000" expanded="true" signature="1529:1634" placeholder="..." />
+            <marker date="1454607625000" expanded="true" signature="1759:1893" placeholder="{...}" />
+            <marker date="1454607625000" expanded="true" signature="1959:2136" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Intern.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64788735">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <marker date="1454603804000" expanded="true" signature="65:236" placeholder=" Class Intern ..." />
+            <marker date="1454603804000" expanded="true" signature="251:2524" placeholder="{...}" />
+            <marker date="1454603804000" expanded="true" signature="261:413" placeholder=" Run an experiment, and retrieve the result. ..." />
+            <marker date="1454603804000" expanded="true" signature="463:656" placeholder="{...}" />
+            <marker date="1454603804000" expanded="true" signature="665:834" placeholder=" Run the control callback, and record its execution state. ..." />
+            <marker date="1454603804000" expanded="true" signature="894:999" placeholder="{...}" />
+            <marker date="1454603804000" expanded="true" signature="1008:1203" placeholder=" Run trial callbacks and record their execution state. ..." />
+            <marker date="1454603804000" expanded="true" signature="1282:1526" placeholder="{...}" />
+            <marker date="1454603804000" expanded="true" signature="1379:1490" placeholder="..." />
+            <marker date="1454603804000" expanded="true" signature="1535:1796" placeholder=" Execute a callback and record an execution. ..." />
+            <marker date="1454603804000" expanded="true" signature="1937:2521" placeholder="..." />
+            <marker date="1454603804000" expanded="true" signature="1949:2118" placeholder=" We'll execute the provided callable between two ..." />
+            <marker date="1454603804000" expanded="true" signature="2246:2317" placeholder=" A control value is provided for trail executions. ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Experiment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.75">
+          <caret line="213" column="32" selection-start-line="213" selection-start-column="32" selection-end-line="213" selection-end-column="32" />
+          <folding>
+            <marker date="1454607413000" expanded="true" signature="33:100" placeholder="..." />
+            <marker date="1454607413000" expanded="true" signature="105:277" placeholder=" Class Experiment ..." />
+            <marker date="1454607413000" expanded="true" signature="296:4639" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="306:362" placeholder=" Experiment name. ..." />
+            <marker date="1454607413000" expanded="true" signature="394:457" placeholder=" The control callback. ..." />
+            <marker date="1454607413000" expanded="true" signature="492:547" placeholder=" Trial callbacks. ..." />
+            <marker date="1454607413000" expanded="true" signature="586:654" placeholder=" Parameters for our callbacks. ..." />
+            <marker date="1454607413000" expanded="true" signature="693:773" placeholder=" Laboratory instance. ..." />
+            <marker date="1454607413000" expanded="true" signature="811:902" placeholder=" Matcher for experiment values. ..." />
+            <marker date="1454607413000" expanded="true" signature="937:995" placeholder=" Execution chance. ..." />
+            <marker date="1454607413000" expanded="true" signature="1035:1180" placeholder=" Create a new experiment. ..." />
+            <marker date="1454607413000" expanded="true" signature="1241:1369" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="1378:1447" placeholder=" Fetch the experiment name. ..." />
+            <marker date="1454607413000" expanded="true" signature="1479:1519" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="1528:1653" placeholder=" Set the laboratory instance. ..." />
+            <marker date="1454607413000" expanded="true" signature="1713:1789" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="1798:1894" placeholder=" Retrieve the laboratory instance. ..." />
+            <marker date="1454607413000" expanded="true" signature="1932:1978" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="1987:2097" placeholder=" Register a control callback. ..." />
+            <marker date="1454607413000" expanded="true" signature="2147:2218" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="2227:2299" placeholder=" Fetch the control callback. ..." />
+            <marker date="1454607413000" expanded="true" signature="2334:2377" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="2386:2523" placeholder=" Register a trial callback. ..." />
+            <marker date="1454607413000" expanded="true" signature="2578:2655" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="2664:2771" placeholder=" Fetch a trial callback by name. ..." />
+            <marker date="1454607413000" expanded="true" signature="2809:2858" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="2867:2943" placeholder=" Fetch an array of trial callbacks. ..." />
+            <marker date="1454607413000" expanded="true" signature="2977:3019" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="3028:3162" placeholder=" Set a matcher for this experiment. ..." />
+            <marker date="1454607413000" expanded="true" signature="3210:3280" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="3289:3389" placeholder=" Get the matcher for this experiment. ..." />
+            <marker date="1454607413000" expanded="true" signature="3424:3467" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="3476:3580" placeholder=" Set the execution chance. ..." />
+            <marker date="1454607413000" expanded="true" signature="3618:3692" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="3701:3770" placeholder=" Get the execution chance. ..." />
+            <marker date="1454607413000" expanded="true" signature="3804:3846" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="3855:3958" placeholder=" Determine whether an experiment should run based on chance. ..." />
+            <marker date="1454607413000" expanded="true" signature="3992:4050" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="4059:4146" placeholder=" Execute the experiment within the laboratory. ..." />
+            <marker date="1454607413000" expanded="true" signature="4174:4394" placeholder="{...}" />
+            <marker date="1454607413000" expanded="true" signature="4255:4324" placeholder="..." />
+            <marker date="1454607413000" expanded="true" signature="4403:4500" placeholder=" Execute the experiment and return a result. ..." />
+            <marker date="1454607413000" expanded="true" signature="4531:4637" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/JournalTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32511738">
+          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+          <folding>
+            <marker date="1454608542000" expanded="true" signature="11:120" placeholder="..." />
+            <marker date="1454608542000" expanded="true" signature="175:2756" placeholder="{...}" />
+            <marker date="1454608542000" expanded="true" signature="233:279" placeholder="{...}" />
+            <marker date="1454608542000" expanded="true" signature="351:514" placeholder="{...}" />
+            <marker date="1454608542000" expanded="true" signature="594:825" placeholder="{...}" />
+            <marker date="1454608542000" expanded="true" signature="908:1116" placeholder="{...}" />
+            <marker date="1454608542000" expanded="true" signature="1189:1903" placeholder="{...}" />
+            <marker date="1454608542000" expanded="true" signature="1466:1474" placeholder="..." />
+            <marker date="1454608542000" expanded="true" signature="1496:1509" placeholder="..." />
+            <marker date="1454608542000" expanded="true" signature="1972:2754" placeholder="{...}" />
+            <marker date="1454608542000" expanded="true" signature="2249:2257" placeholder="..." />
+            <marker date="1454608542000" expanded="true" signature="2279:2292" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/InternTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24295774">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <marker date="1454598905000" expanded="true" signature="81:176" placeholder="{...}" />
+            <marker date="1454598905000" expanded="true" signature="137:174" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ExecutionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7570422">
+          <caret line="38" column="68" selection-start-line="38" selection-start-column="68" selection-end-line="38" selection-end-column="68" />
+          <folding>
+            <marker date="1454603863000" expanded="true" signature="87:1326" placeholder="{...}" />
+            <marker date="1454603863000" expanded="true" signature="151:216" placeholder="{...}" />
+            <marker date="1454603863000" expanded="true" signature="291:513" placeholder="{...}" />
+            <marker date="1454603863000" expanded="true" signature="598:814" placeholder="{...}" />
+            <marker date="1454603863000" expanded="true" signature="896:1100" placeholder="{...}" />
+            <marker date="1454603863000" expanded="true" signature="1172:1324" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ExampleTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5669014">
+          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+          <folding>
+            <marker date="1454606635000" expanded="true" signature="86:1752" placeholder="{...}" />
+            <marker date="1454606635000" expanded="true" signature="159:746" placeholder="{...}" />
+            <marker date="1454606635000" expanded="true" signature="263:332" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="391:465" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="528:555" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="579:597" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="619:659" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="835:1750" placeholder="{...}" />
+            <marker date="1454606635000" expanded="true" signature="939:1008" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="1067:1141" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="1205:1232" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="1256:1274" placeholder="..." />
+            <marker date="1454606635000" expanded="true" signature="1296:1336" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Matchers/StandardMatcherTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70187795">
+          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+          <folding>
+            <marker date="1454609640000" expanded="true" signature="108:713" placeholder="{...}" />
+            <marker date="1454609640000" expanded="true" signature="174:220" placeholder="{...}" />
+            <marker date="1454609640000" expanded="true" signature="287:383" placeholder="{...}" />
+            <marker date="1454609640000" expanded="true" signature="458:549" placeholder="{...}" />
+            <marker date="1454609640000" expanded="true" signature="613:711" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Execution.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.4295774">
+          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+          <folding>
+            <marker date="1454604946000" expanded="true" signature="32:204" placeholder=" Class Execution ..." />
+            <marker date="1454604946000" expanded="true" signature="222:1637" placeholder="{...}" />
+            <marker date="1454604946000" expanded="true" signature="232:293" placeholder=" Callback result value. ..." />
+            <marker date="1454604946000" expanded="true" signature="326:389" placeholder=" Callback execution time. ..." />
+            <marker date="1454604946000" expanded="true" signature="421:485" placeholder=" Trial vs control match. ..." />
+            <marker date="1454604946000" expanded="true" signature="526:659" placeholder=" Construct a new execution. ..." />
+            <marker date="1454604946000" expanded="true" signature="724:846" placeholder="{...}" />
+            <marker date="1454604946000" expanded="true" signature="855:927" placeholder=" Get the callback return value. ..." />
+            <marker date="1454604946000" expanded="true" signature="960:1001" placeholder="{...}" />
+            <marker date="1454604946000" expanded="true" signature="1010:1084" placeholder=" Get the callback execution time. ..." />
+            <marker date="1454604946000" expanded="true" signature="1116:1156" placeholder="{...}" />
+            <marker date="1454604946000" expanded="true" signature="1165:1250" placeholder=" Get the callback to control match status. ..." />
+            <marker date="1454604946000" expanded="true" signature="1282:1323" placeholder="{...}" />
+            <marker date="1454604946000" expanded="true" signature="1332:1420" placeholder=" Retrieve the execution in JSON string format. ..." />
+            <marker date="1454604946000" expanded="true" signature="1455:1635" placeholder="{...}" />
+            <marker date="1454604946000" expanded="true" signature="1489:1627" placeholder="..." />
+            <marker date="1454604946000" expanded="true" signature="1490:1626" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Journals/StandardJournal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4307512">
+          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+          <folding>
+            <marker date="1454605395000" expanded="true" signature="42:85" placeholder="..." />
+            <marker date="1454605395000" expanded="true" signature="90:152" placeholder=" Class StandardJournal ..." />
+            <marker date="1454605395000" expanded="true" signature="195:1084" placeholder="{...}" />
+            <marker date="1454605395000" expanded="true" signature="205:284" placeholder=" The executed experiment. ..." />
+            <marker date="1454605395000" expanded="true" signature="322:395" placeholder=" The experiment result. ..." />
+            <marker date="1454605395000" expanded="true" signature="429:599" placeholder=" Dispatch a report to storage. ..." />
+            <marker date="1454605395000" expanded="true" signature="668:758" placeholder="{...}" />
+            <marker date="1454605395000" expanded="true" signature="767:844" placeholder=" Get the experiment. ..." />
+            <marker date="1454605395000" expanded="true" signature="882:928" placeholder="{...}" />
+            <marker date="1454605395000" expanded="true" signature="937:1006" placeholder=" Get the result. ..." />
+            <marker date="1454605395000" expanded="true" signature="1040:1082" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Journals/Journal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37793428">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding>
+            <marker date="1454605234000" expanded="true" signature="42:85" placeholder="..." />
+            <marker date="1454605234000" expanded="true" signature="90:234" placeholder=" Class Journal ..." />
+            <marker date="1454605234000" expanded="true" signature="254:506" placeholder="{...}" />
+            <marker date="1454605234000" expanded="true" signature="264:434" placeholder=" Dispatch a report to storage. ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Matchers/StandardMatcher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5938967">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <marker date="1454609652000" expanded="true" signature="41:103" placeholder=" Class StandardMatcher ..." />
+            <marker date="1454609652000" expanded="true" signature="146:394" placeholder="{...}" />
+            <marker date="1454609652000" expanded="true" signature="156:298" placeholder=" Determine whether two values match. ..." />
+            <marker date="1454609652000" expanded="true" signature="344:392" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Matchers/Matcher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18896714">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
