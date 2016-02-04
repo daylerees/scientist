@@ -105,7 +105,7 @@ Once we've checked our data, and we're confident that our trial is equivalent (o
 
 ## Parameters
 
-Your count might not be useful without additional parameters. Don't worry, we've got you covered.
+Your code gmight not be useful without additional parameters. Don't worry, we've got you covered.
 
 ```php
 ->run($param, $secondParam, $more);
