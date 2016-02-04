@@ -1,11 +1,11 @@
-![Scientist](scientist.png)
+[![Scientist](scientist.png)](https://packagist.org/packages/daylerees/scientist)
 
 # Scientist
 
 [![Build Status](https://travis-ci.org/daylerees/scientist.svg?branch=master)](https://travis-ci.org/daylerees/scientist)
-![Packagist Version](https://img.shields.io/packagist/v/daylerees/scientist.svg)
-![HHVM Tested](https://img.shields.io/hhvm/daylerees/scientist.svg)
-![Packagist](https://img.shields.io/packagist/dt/daylerees/scientist.svg)
+[![Packagist Version](https://img.shields.io/packagist/v/daylerees/scientist.svg)](https://packagist.org/packages/daylerees/scientist)
+[![HHVM Tested](https://img.shields.io/hhvm/daylerees/scientist.svg)](https://travis-ci.org/daylerees/scientist)
+[![Packagist](https://img.shields.io/packagist/dt/daylerees/scientist.svg)](https://packagist.org/packages/daylerees/scientist)
 
 A PHP experiment library inspired by Github's own [Scientist](https://github.com/github/scientist).
 
@@ -105,7 +105,7 @@ Once we've checked our data, and we're confident that our trial is equivalent (o
 
 ## Parameters
 
-Your code gmight not be useful without additional parameters. Don't worry, we've got you covered.
+Your code might not be useful without additional parameters. Don't worry, we've got you covered.
 
 ```php
 ->run($param, $secondParam, $more);
