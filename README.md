@@ -1,3 +1,4 @@
+![Scientist](scientist.png)
 # Scientist
 
 PHP experiment library, inspired by Github's own Scientist.
