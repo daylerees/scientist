@@ -6,4 +6,6 @@ php:
   - '7.0'
   - hhvm
   - nightly
+install:
+  - composer install --dev
 script: ant
