@@ -3,6 +3,9 @@
 # Scientist
 
 [![Build Status](https://travis-ci.org/daylerees/scientist.svg?branch=master)](https://travis-ci.org/daylerees/scientist)
+![Packagist Version](https://img.shields.io/packagist/v/daylerees/scientist.svg)
+![HHVM Tested](https://img.shields.io/hhvm/daylerees/scientist.svg)
+![Packagist](https://img.shields.io/packagist/dt/daylerees/scientist.svg)
 
 PHP experiment library, inspired by Github's own Scientist.
 
