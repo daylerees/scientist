@@ -2,6 +2,7 @@
 
 namespace Scientist;
 
+use Exception;
 use Scientist\Matchers\Matcher;
 
 /**
@@ -39,7 +40,11 @@ class Intern
      */
     protected function runControl(Experiment $experiment)
     {
-        return $this->executeCallback($experiment->getControl(), $experiment->getMatcher());
+        return $this->executeCallback(
+            $experiment->getControl(),
+            $experiment->getParams(),
+            $experiment->getMatcher()
+        );
     }
 
     /**
@@ -55,7 +60,12 @@ class Intern
         $executions = [];
 
         foreach ($experiment->getTrials() as $name => $trial) {
-            $executions[$name] = $this->executeCallback($trial, $experiment->getMatcher(), $control);
+            $executions[$name] = $this->executeCallback(
+                $trial,
+                $experiment->getParams(),
+                $experiment->getMatcher(),
+                $control
+            );
         }
 
         return $executions;
@@ -65,6 +75,7 @@ class Intern
      * Execute a callback and record an execution.
      *
      * @param callable                    $callable
+     * @param array                       $params
      * @param \Scientist\Matchers\Matcher $matcher
      * @param \Scientist\Execution|null   $control
      *
@@ -72,6 +83,7 @@ class Intern
      */
     protected function executeCallback(
         callable  $callable,
+        array     $params,
         Matcher   $matcher,
         Execution $control = null
     ) {
@@ -80,8 +92,18 @@ class Intern
          * recorded timestamps, so that we can calculate
          * the execution time of the code.
          */
+        $exception = null;
         $before = microtime(true);
-        $value = call_user_func($callable);
+        if ($control) {
+            try {
+                $value = call_user_func_array($callable, $params);
+            } catch (Exception $ex) {
+                $value = null;
+                $exception = $ex;
+            }
+        } else {
+            $value = call_user_func_array($callable, $params);
+        }
         $after = microtime(true);
 
         /**
@@ -92,7 +114,8 @@ class Intern
         return new Execution(
             $value,
             $after - $before,
-            $matcher->match($value, $compare)
+            $matcher->match($value, $compare),
+            $exception
         );
     }
 }

@@ -231,6 +231,16 @@ class Experiment
     }
 
     /**
+     * Get the experiment parameters.
+     *
+     * @return array
+     */
+    public function getParams()
+    {
+        return $this->params;
+    }
+
+    /**
      * Execute the experiment within the laboratory.
      *
      * @return mixed

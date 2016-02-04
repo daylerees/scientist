@@ -83,9 +83,12 @@ class Laboratory
         if ($experiment->shouldRun()) {
             $result = $this->getResult($experiment);
             return $result->control()->getValue();
-        } else {
-            return call_user_func($experiment->getControl());
         }
+
+        return call_user_func_array(
+            $experiment->getControl(),
+            $experiment->getParams()
+        );
     }
 
     /**
@@ -99,6 +102,7 @@ class Laboratory
     {
         $result = (new Intern)->run($experiment);
         $this->reportToJournals($experiment, $result);
+
         return $result;
     }
 

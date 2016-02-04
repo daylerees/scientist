@@ -103,6 +103,31 @@ Upon running the code above, the control and trials are all executed. Using Jour
 
 Once we've checked our data, and we're confident that our trial is equivalent (or better!) to our control code, we'll replace the experiment with that implementation.
 
+## Parameters
+
+Your count might not be useful without additional parameters. Don't worry, we've got you covered.
+
+```php
+->run($param, $secondParam, $more);
+```
+
+or
+
+```php
+->result($param, $secondParam, $more);
+```
+
+You can pass parameters to the `run()` or `result()` methods, and the parameters will be provided to both the control and trial callbacks on execution. Simple, right?
+
+## Chance it!
+
+Your experiments might be a little weighty. You might not want to run them all the time. Provide a % chance parameter to alter the chance that an experiment will run.
+
+```php
+$lab->experiment('foo')
+    ->chance(50)...;
+```
+
 ## Journals
 
 Journals are assigned to a Laboratory, and are used to report on the result of experiments. You'll (hopefully soon) find a bunch of journals on packagist, or you can create your own.

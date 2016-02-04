@@ -34,17 +34,26 @@ class Execution
     protected $match = false;
 
     /**
+     * Thrown exception.
+     *
+     * @var boolean
+     */
+    protected $exception;
+
+    /**
      * Construct a new execution.
      *
-     * @param mixed   $value
-     * @param float   $time
-     * @param boolean $match
+     * @param mixed      $value
+     * @param float      $time
+     * @param boolean    $match
+     * @param \Exception $exception
      */
-    public function __construct($value, $time, $match = false)
+    public function __construct($value, $time, $match = false, $exception = null)
     {
-        $this->value = $value;
-        $this->time  = (float) $time;
-        $this->match = (boolean) $match;
+        $this->value     = $value;
+        $this->time      = (float) $time;
+        $this->match     = (boolean) $match;
+        $this->exception = $exception;
     }
 
     /**
@@ -75,6 +84,16 @@ class Execution
     public function isMatch()
     {
         return $this->match;
+    }
+
+    /**
+     * Get a thrown exception.
+     *
+     * @return boolean
+     */
+    public function getException()
+    {
+        return $this->exception;
     }
 
     /**
