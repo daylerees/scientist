@@ -1,5 +1,8 @@
+<img src="
 ![Scientist](scientist.png)
 # Scientist
+
+[![Build Status](https://travis-ci.org/daylerees/scientist.svg?branch=master)](https://travis-ci.org/daylerees/scientist)
 
 PHP experiment library, inspired by Github's own Scientist.
 
