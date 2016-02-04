@@ -76,27 +76,27 @@ The `run()` method will execute our experiment, and return the result of the con
 Imagine for a moment that we have a simple piece of code to announce ourselves, and our name. We're using `str_replace()` to insert the name at the moment. Do you think using `preg_replace()` might be better? It would be great to find out, wouldn't it? Let's run an experiment.
 
 ```php
-        // Our announcement template.
-        $string = 'My name is _NAME_.';
+// Our announcement template.
+$string = 'My name is _NAME_.';
 
-        // Callback containing the current (control) code.
-        $stringReplacement = function () use ($string) {
-            return str_replace('_NAME_', 'Dayle', $string);
-        };
+// Callback containing the current (control) code.
+$stringReplacement = function () use ($string) {
+    return str_replace('_NAME_', 'Dayle', $string);
+};
 
-        // Callback containing our experimental (trial) code.
-        $regexReplacement = function () use ($string) {
-            return preg_replace('/\_NAME\_/', 'Dayle', $string);
-        };
+// Callback containing our experimental (trial) code.
+$regexReplacement = function () use ($string) {
+    return preg_replace('/\_NAME\_/', 'Dayle', $string);
+};
 
-        // Let's define the experiment.
-        $value = $laboratory
-            ->experiment('Replace name in a string.')
-            ->control($stringReplacement)
-            ->trial('Use preg_replace().', $regexReplacement)
-            ->run();
+// Let's define the experiment.
+$value = $laboratory
+    ->experiment('Replace name in a string.')
+    ->control($stringReplacement)
+    ->trial('Use preg_replace().', $regexReplacement)
+    ->run();
 
-        // $value == 'My name is Dayle.'
+// $value == 'My name is Dayle.'
 ```
 
 Upon running the code above, the control and trials are all executed. Using Journals (check the docs!), the results of the tests, and the differences between the control and trials are recorded to a data store for us to examine later. When running the experiment, only the **control** output is returned. We don't want to risk our experiments until we've checked the data.
@@ -171,12 +171,12 @@ class MyMatcher implements Matcher
 ...then we can assign our matcher to the experiment.
 
 ```php
-        $value = $laboratory
-            ->experiment('Experiment title')
-            ->control($control)
-            ->trial('Trial title', $trial)
-            ->matcher(new MyApp\MyMatcher)
-            ->run();
+$value = $laboratory
+    ->experiment('Experiment title')
+    ->control($control)
+    ->trial('Trial title', $trial)
+    ->matcher(new MyApp\MyMatcher)
+    ->run();
 ```
 
 ## Additional Documentation
