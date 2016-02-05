@@ -9,6 +9,20 @@
 
 A PHP experiment library inspired by Github's own [Scientist](https://github.com/github/scientist).
 
+---
+
+- [Install](#installation)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Example](#example)
+- [Parameters](#parameters)
+- [Chance](#chance-it)
+- [Journals](#journals)
+- [Matchers](#matchers)
+
+---
+
+
 ## Installation
 
 Require the latest version of Scientist using [Composer](https://getcomposer.org/).
