@@ -27,7 +27,7 @@ A PHP experiment library inspired by Github's own [Scientist](https://github.com
 
 Require the latest version of Scientist using [Composer](https://getcomposer.org/).
 
-    composer require daylerees/scientist
+    composer require --dev daylerees/scientist
 
 ## Setup
 
