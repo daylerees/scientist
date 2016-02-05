@@ -99,7 +99,7 @@ class ExperimentTest extends PHPUnit_Framework_TestCase
             ->control(function () { return 'foo'; })
             ->chance(0)
             ->run();
-        
+
         $this->assertEquals('foo', $v);
     }
 }

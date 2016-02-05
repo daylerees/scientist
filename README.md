@@ -25,6 +25,11 @@ A PHP experiment library inspired by Github's own [Scientist](https://github.com
 
 ---
 
+<div class="warning">
+    <h2>Alpha Version</h2>
+    <p>We're almost there, but please use caution for now. The API may change during alpha.</p>
+</div>
+
 
 ## Installation
 
@@ -224,4 +229,10 @@ $value = $laboratory
 
 ## Additional Documentation
 
-Is coming soon, along with a contribution guide.
+Is coming soon.
+
+Don't forget to check out the [contributors guide](CONTRIBUTING.md).
+
+Thanks for checking out Scientist!
+
+- Dayle.
