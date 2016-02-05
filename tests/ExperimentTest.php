@@ -1,6 +1,7 @@
 <?php
 
 use Scientist\Experiment;
+use Scientist\Laboratory;
 use Scientist\Matchers\StandardMatcher;
 
 class ExperimentTest extends PHPUnit_Framework_TestCase
@@ -72,5 +73,33 @@ class ExperimentTest extends PHPUnit_Framework_TestCase
         $e = new Experiment('test experiment');
         $e->matcher(new StandardMatcher);
         $this->assertInstanceOf(StandardMatcher::class, $e->getMatcher());
+    }
+
+    public function test_that_an_experiment_laboratory_can_be_set()
+    {
+        $e = new Experiment('test experiment');
+        $l = new Laboratory;
+        $e->setLaboratory($l);
+        $this->assertInstanceOf(Laboratory::class, $e->getLaboratory());
+        $this->assertSame($l, $e->getLaboratory());
+    }
+
+    public function test_that_running_experiment_with_no_laboratory_executes_control()
+    {
+        $e = new Experiment('test experiment');
+        $e->control(function () { return 'foo'; });
+        $v = $e->run();
+        $this->assertEquals('foo', $v);
+    }
+
+    public function test_that_running_experiment_with_zero_chance_executes_control()
+    {
+        $l = new Laboratory;
+        $v = $l->experiment('test experiment')
+            ->control(function () { return 'foo'; })
+            ->chance(0)
+            ->run();
+        
+        $this->assertEquals('foo', $v);
     }
 }

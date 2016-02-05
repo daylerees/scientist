@@ -57,4 +57,20 @@ class ResultTest extends PHPUnit_Framework_TestCase
         $r->setMatch(true);
         $this->assertTrue(true, $r->isMatch());
     }
+
+    public function test_result_can_have_total_execution_time()
+    {
+        $r = new Result;
+        $r->setStartTime(2);
+        $r->setEndTime(5);
+        $this->assertEquals(3, $r->getTime());
+    }
+
+    public function test_result_can_have_total_memory_usage()
+    {
+        $r = new Result;
+        $r->setStartMemory(2);
+        $r->setEndMemory(5);
+        $this->assertEquals(3, $r->getMemory());
+    }
 }
