@@ -31,17 +31,17 @@ Require the latest version of Scientist using [Composer](https://getcomposer.org
 
 ## Setup
 
-Before you can run your own experiments, you're going to need  a Laboratory.
+Before you can run your own experiments, you're going to need a Laboratory.
 
 ```php
-$lab = new \Scientist\Laboratory;
+$laboratory = new \Scientist\Laboratory;
 ```
 
 Scientists report their findings to journals. If you'd like to report the result of an experiment, then simply register journals with the laboratory.
 
 ```php
-$lab->addJournal(new DatabaseJournal);
-$lab->addJournal(new RedisJournal);
+$laboratory->addJournal(new DatabaseJournal);
+$laboratory->addJournal(new RedisJournal);
 ```
 
 Journals extend the `Scientist\Journals\Journal` interface, and contain a `handle()` method that will receive a wealth information whenever an experiment is executed.
@@ -62,25 +62,25 @@ $value = $laboratory
 Still looking for more information? Okay, let's step through this.
 
 ```php
-$labratory->experiment('string here');
+$laboratory->experiment('string here');
 ```
 
 Here we can set the name of our experiment.
 
 ```php
-$labratory->control($callable);
+$laboratory->control($callable);
 ```
 
 Here we set our 'control' callback. This should be your current code wrapped in a `callable`.
 
 ```php
-$labratory->trial('string here', $callable);
+$laboratory->trial('string here', $callable);
 ```
 
 Next, we define our trial code. The first parameter gives a useful name to the trial, and the second parameter is another `callable`. The idea is that the callable in this section should be equivalent (or better!) to our control callback. You can add as many trials as you like.
 
 ```php
-$labratory->run();
+$laboratory->run();
 ```
 
 The `run()` method will execute our experiment, and return the result of the control callback. It will **never** return a value from a trial. If we'd just like to examine the result of the experiment, we could use `->result()` instead! Neat, right?
@@ -138,7 +138,7 @@ You can pass parameters to the `run()` or `result()` methods, and the parameters
 Your experiments might be a little weighty. You might not want to run them all the time. Provide a % chance parameter to alter the chance that an experiment will run.
 
 ```php
-$lab->experiment('foo')
+$laboratory->experiment('foo')
     ->chance(50)...;
 ```
 
@@ -174,7 +174,7 @@ class MyJournal implements Journal
 We could examine the experiment and its result, and export this information to a data store or a log. You have complete freedom with the information that Scientist provides to you. To use a Journal (or multiple journals), simply add them to the Laboratory.
 
 ```php
-$lab->addJournal(new \MyApp\MyJournal);
+$laboratory->addJournal(new \MyApp\MyJournal);
 ```
 
 ## Matchers
