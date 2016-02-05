@@ -169,6 +169,7 @@ class MyJournal implements Journal
     {
         // Store this information in a data store.
     }
+}
 ```
 
 We could examine the experiment and its result, and export this information to a data store or a log. You have complete freedom with the information that Scientist provides to you. To use a Journal (or multiple journals), simply add them to the Laboratory.
