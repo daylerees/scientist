@@ -1,6 +1,6 @@
 {
     "name": "daylerees/scientist",
-    "description": "A PHP experiment library inspired by Github's own Scientist.",
+    "description": "A PHP experimentation library inspired by Github's own Scientist.",
     "keywords": ["scientist", "testing", "experiment", "framework", "dayle", "test"],
     "license": "MIT",
     "type": "library",
