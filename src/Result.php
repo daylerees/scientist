@@ -2,90 +2,252 @@
 
 namespace Scientist;
 
+use Exception;
+
 /**
- * Class Result
+ * Class Execution
  *
- * Here we have the results of our experiment. My fingers are crossed for
- * you! - Dayle.
+ * An execution records the state of a callback, including how long it
+ * took to execute, and what values were returned.
  *
  * @package \Scientist
  */
 class Result
 {
     /**
-     * The experiment name.
+     * Callback result value.
      *
-     * @var string
+     * @var mixed
      */
-    protected $name;
+    protected $value;
 
     /**
-     * The control execution instance.
+     * The time the callback was executed.
      *
-     * @var \Scientist\Execution
+     * @var float
      */
-    protected $control;
+    protected $startTime;
 
     /**
-     * The trial execution instances.
+     * The time the callback finished executing.
      *
-     * @var array
+     * @var float
      */
-    protected $trials = [];
+    protected $endTime;
 
     /**
-     * Create a new result instance.
+     * The memory usage before the callback is executed.
      *
-     * @param string               $name
-     * @param \Scientist\Execution $control
-     * @param array                $trials
+     * @var float
      */
-    public function __construct($name, Execution $control, array $trials = [])
+    protected $startMemory;
+
+    /**
+     * The memory usage after the callback is executed.
+     *
+     * @var float
+     */
+    protected $endMemory;
+
+    /**
+     * Exception thrown by callback.
+     *
+     * @var \Exception|null
+     */
+    protected $exception;
+
+    /**
+     * Does the callback result value match the control.
+     *
+     * @var boolean
+     */
+    protected $match = false;
+
+    /**
+     * Get the callback result value.
+     *
+     * @return mixed
+     */
+    public function getValue()
     {
-        $this->name    = $name;
-        $this->control = $control;
-        $this->trials  = $trials;
+        return $this->value;
     }
 
     /**
-     * Get the experiment name.
+     * Set the callback result value.
      *
-     * @return string
+     * @param mixed $value
+     *
+     * @return $this
      */
-    public function name()
+    public function setValue($value)
     {
-        return $this->name;
+        $this->value = $value;
+
+        return $this;
     }
 
     /**
-     * Get the control execution instance.
+     * Get the callback execution start time.
      *
-     * @return \Scientist\Execution
+     * @return float
      */
-    public function control()
+    public function getStartTime()
     {
-        return $this->control;
+        return $this->startTime;
     }
 
     /**
-     * Get a trial execution instance by name.
+     * Set the callback execution start time.
      *
-     * @param string $name
+     * @param float $startTime
      *
-     * @return \Scientist\Execution
+     * @return $this
      */
-    public function trial($name)
+    public function setStartTime($startTime)
     {
-        return $this->trials[$name];
+        $this->startTime = $startTime;
+
+        return $this;
     }
 
     /**
-     * Get the trial execution instances.
+     * Get the callback execution end time.
      *
-     * @return array
+     * @return float
      */
-    public function trials()
+    public function getEndTime()
     {
-        return $this->trials;
+        return $this->endTime;
+    }
+
+    /**
+     * Set the callback execution end time.
+     *
+     * @param float $endTime
+     *
+     * @return $this
+     */
+    public function setEndTime($endTime)
+    {
+        $this->endTime = $endTime;
+
+        return $this;
+    }
+
+    /**
+     * Get the execution time of the callback.
+     *
+     * @return float
+     */
+    public function getTime()
+    {
+        return $this->endTime - $this->startTime;
+    }
+
+    /**
+     * Get the callback execution starting memory usage.
+     *
+     * @return float
+     */
+    public function getStartMemory()
+    {
+        return $this->startMemory;
+    }
+
+    /**
+     * Set the callback execution starting memory usage.
+     *
+     * @param float $startMemory
+     *
+     * @return $this
+     */
+    public function setStartMemory($startMemory)
+    {
+        $this->startMemory = $startMemory;
+
+        return $this;
+    }
+
+    /**
+     * Get the callback execution ending memory usage.
+     *
+     * @return float
+     */
+    public function getEndMemory()
+    {
+        return $this->endMemory;
+    }
+
+    /**
+     * Set the callback execution ending memory usage.
+     *
+     * @param float $endMemory
+     *
+     * @return $this
+     */
+    public function setEndMemory($endMemory)
+    {
+        $this->endMemory = $endMemory;
+
+        return $this;
+    }
+
+    /**
+     * Get the memory spike amount of the callback.
+     *
+     * @return float
+     */
+    public function getMemory()
+    {
+        return $this->endMemory - $this->startMemory;
+    }
+
+    /**
+     * Get the exception thrown by the callback.
+     *
+     * @return Exception|null
+     */
+    public function getException()
+    {
+        return $this->exception;
+    }
+
+    /**
+     * Set the exception thrown by the callback.
+     *
+     * @param Exception|null $exception
+     *
+     * @return $this
+     */
+    public function setException($exception)
+    {
+        $this->exception = $exception;
+
+        return $this;
+    }
+
+    /**
+     * Determine whether the callback result matches the control.
+     *
+     * @return boolean
+     */
+    public function isMatch()
+    {
+        return $this->match;
+    }
+
+    /**
+     * Set whether the callback result matches the control.
+     *
+     * @param boolean $match
+     *
+     * @return $this
+     */
+    public function setMatch($match)
+    {
+        $this->match = $match;
+
+        return $this;
     }
 }

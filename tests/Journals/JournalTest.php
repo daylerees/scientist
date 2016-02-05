@@ -1,10 +1,9 @@
 <?php
 
-use Scientist\Result;
+use Scientist\Report;
 use Scientist\Laboratory;
 use Scientist\Experiment;
 use Scientist\Journals\StandardJournal;
-
 
 class JournalTest extends PHPUnit_Framework_TestCase
 {
@@ -71,10 +70,10 @@ class JournalTest extends PHPUnit_Framework_TestCase
             ->run();
 
         $this->assertEquals('foo', $value);
-        $this->assertInstanceOf(Result::class, $journal->getResult());
-        $this->assertEquals('foo', $journal->getResult()->name());
-        $this->assertEquals('foo', $journal->getResult()->control()->getValue());
-        $this->assertEquals('bar', $journal->getResult()->trial('bar')->getValue());
-        $this->assertEquals(false, $journal->getResult()->trial('bar')->isMatch());
+        $this->assertInstanceOf(Report::class, $journal->getReport());
+        $this->assertEquals('foo', $journal->getReport()->getName());
+        $this->assertEquals('foo', $journal->getReport()->getControl()->getValue());
+        $this->assertEquals('bar', $journal->getReport()->getTrial('bar')->getValue());
+        $this->assertEquals(false, $journal->getReport()->getTrial('bar')->isMatch());
     }
 }

@@ -1,37 +1,60 @@
 <?php
 
 use Scientist\Result;
-use Scientist\Execution;
 
 class ResultTest extends PHPUnit_Framework_TestCase
 {
-    public function test_that_result_can_be_created()
+    public function test_result_can_be_created()
     {
-        $e = new Execution(true, 10.0, true, true);
-        $r = new Result('name', $e, []);
+        new Result;
     }
 
-    public function test_that_result_has_experiment_name()
+    public function test_result_can_have_value()
     {
-        $e = new Execution(true, 10.0, true, true);
-        $r = new Result('name', $e, []);
-        $this->assertEquals('name', $r->name());
+        $r = new Result;
+        $r->setValue('foo');
+        $this->assertEquals('foo', $r->getValue());
     }
 
-    public function test_that_result_has_control_execution()
+    public function test_result_can_have_start_time()
     {
-        $e = new Execution(true, 10.0, true, true);
-        $r = new Result('name', $e, []);
-        $this->assertInstanceOf(Execution::class, $r->control());
-        $this->assertEquals(10.0, $r->control()->getTime());
+        $r = new Result;
+        $r->setStartTime(123);
+        $this->assertEquals(123, $r->getStartTime());
     }
 
-    public function test_that_result_has_trial_executions()
+    public function test_result_can_have_end_time()
     {
-        $control = new Execution(true, 10.0, true, true);
-        $trial   = new Execution(true, 82.0, true, true);
-        $r = new Result('name', $control, ['bar' => $trial]);
-        $this->assertInstanceOf(Execution::class, $r->trial('bar'));
-        $this->assertEquals(82.0, $r->trial('bar')->getTime());
+        $r = new Result;
+        $r->setEndTime(123);
+        $this->assertEquals(123, $r->getEndTime());
+    }
+
+    public function test_result_can_have_start_memory()
+    {
+        $r = new Result;
+        $r->setStartMemory(123);
+        $this->assertEquals(123, $r->getStartMemory());
+    }
+
+    public function test_result_can_have_end_memory()
+    {
+        $r = new Result;
+        $r->setEndMemory(123);
+        $this->assertEquals(123, $r->getEndMemory());
+    }
+
+    public function test_result_can_have_exception()
+    {
+        $r = new Result;
+        $r->setException(new Exception);
+        $this->assertInstanceOf(Exception::class, $r->getException());
+    }
+
+    public function test_result_can_have_match_status()
+    {
+        $r = new Result;
+        $r->setMatch(true);
+        $this->assertTrue(true, $r->isMatch());
     }
 }

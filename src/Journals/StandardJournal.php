@@ -2,7 +2,7 @@
 
 namespace Scientist\Journals;
 
-use Scientist\Result;
+use Scientist\Report;
 use Scientist\Experiment;
 
 /**
@@ -20,24 +20,24 @@ class StandardJournal implements Journal
     protected $experiment;
 
     /**
-     * The experiment result.
+     * The experiment report.
      *
-     * @var \Scientist\Result
+     * @var \Scientist\Report
      */
-    protected $result;
+    protected $report;
 
     /**
      * Dispatch a report to storage.
      *
      * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Result     $result
+     * @param \Scientist\Report     $report
      *
      * @return mixed
      */
-    public function report(Experiment $experiment, Result $result)
+    public function report(Experiment $experiment, Report $report)
     {
         $this->experiment = $experiment;
-        $this->result     = $result;
+        $this->report     = $report;
     }
 
     /**
@@ -51,12 +51,12 @@ class StandardJournal implements Journal
     }
 
     /**
-     * Get the result.
+     * Get the experiment report.
      *
-     * @return \Scientist\Result
+     * @return \Scientist\Report
      */
-    public function getResult()
+    public function getReport()
     {
-        return $this->result;
+        return $this->report;
     }
 }

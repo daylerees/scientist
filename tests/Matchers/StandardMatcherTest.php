@@ -7,6 +7,7 @@ class StandardMatcherTest extends PHPUnit_Framework_TestCase
     public function test_that_standard_matcher_can_be_created()
     {
         $s = new StandardMatcher;
+        $this->assertInstanceOf(StandardMatcher::class, $s);
     }
 
     public function test_that_standard_matcher_can_match_values()

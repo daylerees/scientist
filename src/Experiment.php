@@ -259,7 +259,7 @@ class Experiment
     /**
      * Execute the experiment and return a result.
      *
-     * @return \Scientist\Result
+     * @return \Scientist\Report
      */
     public function result()
     {

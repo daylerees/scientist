@@ -2,7 +2,6 @@
 
 namespace Scientist;
 
-use Exception;
 use Scientist\Matchers\Matcher;
 
 /**
@@ -20,15 +19,16 @@ class Intern
      *
      * @param \Scientist\Experiment $experiment
      *
-     * @return \Scientist\Result
+     * @return \Scientist\Report
      */
     public function run(Experiment $experiment)
     {
-        return new Result(
-            $experiment->getName(),
-            $control = $this->runControl($experiment),
-            $this->runTrials($experiment, $control)
-        );
+        $control = $this->runControl($experiment);
+        $trials  = $this->runTrials($experiment);
+
+        $this->determineMatches($experiment->getMatcher(), $control, $trials);
+
+        return new Report($experiment->getName(), $control, $trials);
     }
 
     /**
@@ -36,86 +36,48 @@ class Intern
      *
      * @param \Scientist\Experiment $experiment
      *
-     * @return \Scientist\Execution
+     * @return \Scientist\Result
      */
     protected function runControl(Experiment $experiment)
     {
-        return $this->executeCallback(
-            $experiment->getControl(),
-            $experiment->getParams(),
-            $experiment->getMatcher()
-        );
+        return (new Machine($experiment->getControl(), $experiment->getParams()))->execute();
     }
 
     /**
      * Run trial callbacks and record their execution state.
      *
      * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Execution  $control
      *
      * @return array
      */
-    protected function runTrials(Experiment $experiment, Execution $control)
+    protected function runTrials(Experiment $experiment)
     {
         $executions = [];
 
         foreach ($experiment->getTrials() as $name => $trial) {
-            $executions[$name] = $this->executeCallback(
+            $executions[$name] = (new Machine(
                 $trial,
                 $experiment->getParams(),
-                $experiment->getMatcher(),
-                $control
-            );
+                true
+            ))->execute();
         }
 
         return $executions;
     }
 
     /**
-     * Execute a callback and record an execution.
+     * Determine whether trial results match the control.
      *
-     * @param callable                    $callable
-     * @param array                       $params
      * @param \Scientist\Matchers\Matcher $matcher
-     * @param \Scientist\Execution|null   $control
-     *
-     * @return \Scientist\Execution
+     * @param \Scientist\Result           $control
+     * @param array                       $trials
      */
-    protected function executeCallback(
-        callable  $callable,
-        array     $params,
-        Matcher   $matcher,
-        Execution $control = null
-    ) {
-        /**
-         * We'll execute the provided callable between two
-         * recorded timestamps, so that we can calculate
-         * the execution time of the code.
-         */
-        $exception = null;
-        $before = microtime(true);
-        if ($control) {
-            try {
-                $value = call_user_func_array($callable, $params);
-            } catch (Exception $ex) {
-                $value = null;
-                $exception = $ex;
+    protected function determineMatches(Matcher $matcher, Result $control, array $trials = [])
+    {
+        foreach ($trials as $name => $trial) {
+            if ($matcher->match($control->getValue(), $trial->getValue())) {
+                $trial->setMatch(true);
             }
-        } else {
-            $value = call_user_func_array($callable, $params);
         }
-        $after = microtime(true);
-
-        /**
-         * A control value is provided for trail executions.
-         */
-        $compare = $control ? $control->getValue() : null;
-
-        return new Execution(
-            $value,
-            $after - $before,
-            $matcher->match($value, $compare),
-            $exception
-        );
     }
 }

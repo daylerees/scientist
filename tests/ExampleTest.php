@@ -43,10 +43,10 @@ class ExampleTest extends PHPUnit_Framework_TestCase
             ->trial('Use preg_replace().', $regexReplacement)
             ->result();
 
-        $this->assertInternalType('float', $result->control()->getTime());
-        $this->assertEquals('My name is Dayle.', $result->control()->getValue());
+        $this->assertInternalType('float', $result->getControl()->getTime());
+        $this->assertEquals('My name is Dayle.', $result->getControl()->getValue());
 
-        $trial = current($result->trials());
+        $trial = current($result->getTrials());
         $this->assertInternalType('float', $trial->getTime());
         $this->assertEquals('My name is Dayle.', $trial->getValue());
         $this->assertTrue($trial->isMatch());

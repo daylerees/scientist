@@ -2,7 +2,7 @@
 
 namespace Scientist\Journals;
 
-use Scientist\Result;
+use Scientist\Report;
 use Scientist\Experiment;
 
 /**
@@ -19,9 +19,9 @@ interface Journal
      * Dispatch a report to storage.
      *
      * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Result     $result
+     * @param \Scientist\Report     $report
      *
      * @return mixed
      */
-    public function report(Experiment $experiment, Result $result);
+    public function report(Experiment $experiment, Report $report);
 }
