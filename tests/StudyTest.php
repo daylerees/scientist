@@ -1,7 +1,10 @@
 <?php
 
 
+use Scientist\Journals\StandardJournal;
 use Scientist\Laboratory;
+use Scientist\SideEffects\MissingMethod;
+use Scientist\SideEffects\MissingProperty;
 use Scientist\Study;
 use Study\ControlAsset;
 use Study\TrialAsset;
@@ -19,34 +22,33 @@ class StudyTest extends PHPUnit_Framework_TestCase
         $this->assertNotSame($control, $blind);
     }
 
-    public function test_study_aggregates_experiment_reports()
-    {
-        $this->markTestIncomplete('todo');
-    }
-
-    /**
-     * @expectedException \Scientist\SideEffects\MissingMethod
-     */
     public function test_study_uncovers_missing_method_side_effects()
     {
-        $blind = (new Study('study', new Laboratory()))
+        $study = new Study('test', new Laboratory());
+        $study->getLaboratory()->addJournal($journal = new StandardJournal());
+
+        $blind = $study
             ->control($control = new ControlAsset)
-            ->trial('trial name', new TrialAsset)
+            ->trial('trial', new TrialAsset)
             ->blind();
 
         $blind->behavior();
+
+        $this->assertInstanceOf(MissingMethod::class, $journal->getReport()->getTrial('trial')->getException());
     }
 
-    /**
-     * @expectedException \Scientist\SideEffects\MissingProperty
-     */
     public function test_study_uncovers_missing_property_side_effects()
     {
-        $blind = (new Study('study', new Laboratory()))
+        $study = new Study('test', new Laboratory());
+        $study->getLaboratory()->addJournal($journal = new StandardJournal());
+
+        $blind = $study
             ->control($control = new ControlAsset)
-            ->trial('trial name', new TrialAsset)
+            ->trial('trial', new TrialAsset)
             ->blind();
 
         $blind->attribute;
+
+        $this->assertInstanceOf(MissingProperty::class, $journal->getReport()->getTrial('trial')->getException());
     }
 }
