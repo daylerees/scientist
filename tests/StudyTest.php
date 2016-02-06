@@ -1,6 +1,8 @@
 <?php
 
 
+use Blind\BehaviorAsset;
+use Scientist\Blind;
 use Scientist\Journals\StandardJournal;
 use Scientist\Laboratory;
 use Scientist\SideEffects\MissingMethod;
@@ -16,9 +18,11 @@ class StudyTest extends PHPUnit_Framework_TestCase
         $blind = (new Study('study', new Laboratory()))
             ->control($control = new ControlAsset)
             ->trial('trial name', new TrialAsset)
-            ->blind();
+            ->blind(BehaviorAsset::class, Iterator::class);
 
-        $this->assertInstanceOf(ControlAsset::class, $blind);
+        $this->assertInstanceOf(Blind::class, $blind);
+        $this->assertInstanceOf(BehaviorAsset::class, $blind);
+        $this->assertInstanceOf(Iterator::class, $blind);
         $this->assertNotSame($control, $blind);
     }
 

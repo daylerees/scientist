@@ -6,6 +6,7 @@ namespace Scientist\Blind;
 
 use ReflectionClass;
 use ReflectionProperty;
+use Scientist\Blind;
 use Scientist\Experiment;
 use Scientist\SideEffects\MissingMethod;
 use Scientist\SideEffects\MissingProperty;
@@ -21,24 +22,41 @@ class Preparation
      * @param mixed $control
      * @param mixed[] $trials
      * @param string[] $interfaces that blind should satisfy
+     * @return Blind
      */
     public function prepare(Study $study, $control, array $trials, array $interfaces = [])
     {
         $experiments = $this->createExperiments($study, $control, $trials);
-        return $this->createBlind($study, $control, $experiments);
+        return $this->createBlind($study, $control, $experiments, $interfaces);
     }
 
-    private function createBlind($study, array $experiments, array $interfaces = [])
+    /**
+     * @param $study
+     * @param mixed $control
+     * @param Experiment[] $experiments
+     * @param string[] $interfaces
+     * @return Blind
+     */
+    private function createBlind($study, $control, array $experiments, array $interfaces = [])
     {
         $blind_name = sprintf("Blind_%s", str_replace('.', '', uniqid('', true)));
 
+        array_push($interfaces, Blind::class);
+
+        foreach($interfaces as &$interface) {
+            if(strpos($interface, '\\') !== 0) {
+                $interface = '\\'.$interface;
+            }
+        }
+
         $generator = new ClassGenerator($blind_name, 'Scientist\Blind');
         $generator->setImplementedInterfaces($interfaces);
-        $generator->addUse(DecoratorTrait::class);
+        $generator->addTrait('\\'.DecoratorTrait::class);
 
-        $this->getMethodImplementations($generator, $interfaces);
+        $this->addInterfaceMethods($generator, $interfaces);
 
-        eval($generator->generate());
+        $code = $generator->generate();
+        eval($code);
 
         $class_name = sprintf('Scientist\Blind\%s', $blind_name);
         return new $class_name($study, $experiments);
@@ -150,7 +168,7 @@ class Preparation
         };
     }
 
-    private function getMethodImplementations(Classgenerator $classGenerator, array $interfaces)
+    private function addInterfaceMethods(Classgenerator $classGenerator, array $interfaces)
     {
         $template = <<<'PHP'
     $arguments = func_get_args();
@@ -162,6 +180,7 @@ PHP;
             $reflection = new ClassReflection($interface);
             foreach($reflection->getMethods() as $method) {
                 $generator = MethodGenerator::fromReflection($method);
+                $generator->setInterface(false);
                 $generator->setBody(sprintf($template, $method->getName()));
                 $classGenerator->addMethodFromGenerator($generator);
             }

@@ -204,11 +204,17 @@ class Study
     }
 
     /**
+     * @param string ...$interface blind will implement the interfaces specified
      * @return mixed
      */
-    public function blind()
+    public function blind($interface = null)
     {
+        $interfaces = func_get_args();
+        if($interface == null) {
+            array_shift($interfaces);
+        }
+
         $preparation = new Preparation();
-        return $preparation->prepare($this, $this->getControl(), $this->getTrials());
+        return $preparation->prepare($this, $this->getControl(), $this->getTrials(), $interfaces);
     }
 }

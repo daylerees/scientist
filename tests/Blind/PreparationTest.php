@@ -1,6 +1,8 @@
 <?php
 
 
+use Blind\BehaviorAsset;
+use Scientist\Blind;
 use Scientist\Blind\DecoratorTrait;
 use Scientist\Blind\Preparation;
 use Scientist\Experiment;
@@ -27,14 +29,23 @@ class PreparationTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Experiment::class, $study->getExperiment('test::$attribute'));
     }
 
-    public function test_preparation_decorates_experiments_in_a_control_extension()
+    public function test_preparation_returns_a_blind()
     {
         $preparation = new Preparation();
         $blind = $preparation->prepare($study = new Study('test', new Laboratory()), new ControlAsset, [new TrialAsset]);
 
-        $this->assertInstanceOf(ControlAsset::class, $blind);
+        $this->assertInstanceOf(Blind::class, $blind);
+    }
 
-        $reflection = new ReflectionClass($blind);
-        $this->assertTrue(in_array(DecoratorTrait::class, $reflection->getTraitNames()));
+    public function test_preparation_returns_a_blind_that_implements_interfaces()
+    {
+        $preparation = new Preparation();
+        $blind = $preparation->prepare($study = new Study('test',
+            new Laboratory()),
+            new ControlAsset,
+            [new TrialAsset],
+            [BehaviorAsset::class]);
+
+        $this->assertInstanceOf(BehaviorAsset::class, $blind);
     }
 }
