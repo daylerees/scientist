@@ -1,6 +1,7 @@
 <?php
 
 use Scientist\Intern;
+use Scientist\Laboratory;
 use Scientist\Report;
 use Scientist\Experiment;
 
@@ -15,7 +16,7 @@ class InternTest extends PHPUnit_Framework_TestCase
     public function test_that_intern_can_run_an_experiment()
     {
         $i = new Intern;
-        $e = new Experiment('test experiment');
+        $e = new Experiment('test experiment', new Laboratory);
         $e->control(function () { return 'foo'; });
         $v = $i->run($e);
         $this->assertInstanceOf(Report::class, $v);
@@ -25,7 +26,7 @@ class InternTest extends PHPUnit_Framework_TestCase
     public function test_that_intern_can_match_control_and_trial()
     {
         $i = new Intern;
-        $e = new Experiment('test experiment');
+        $e = new Experiment('test experiment', new Laboratory);
         $e->control(function () { return 'foo'; });
         $e->trial('bar', function () { return 'foo'; });
         $v = $i->run($e);
@@ -36,7 +37,7 @@ class InternTest extends PHPUnit_Framework_TestCase
     public function test_that_intern_can_mismatch_control_and_trial()
     {
         $i = new Intern;
-        $e = new Experiment('test experiment');
+        $e = new Experiment('test experiment', new Laboratory);
         $e->control(function () { return 'foo'; });
         $e->trial('bar', function () { return 'bar'; });
         $v = $i->run($e);
@@ -47,7 +48,7 @@ class InternTest extends PHPUnit_Framework_TestCase
     public function test_that_intern_can_match_and_mismatch_control_and_trial()
     {
         $i = new Intern;
-        $e = new Experiment('test experiment');
+        $e = new Experiment('test experiment', new Laboratory);
         $e->control(function () { return 'foo'; });
         $e->trial('bar', function () { return 'foo'; });
         $e->trial('baz', function () { return 'baz'; });

@@ -71,7 +71,7 @@ class Laboratory
      */
     public function experiment($name)
     {
-        return (new Experiment($name))->setLaboratory($this);
+        return (new Experiment($name, $this));
     }
 
     /**
