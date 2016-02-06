@@ -4,9 +4,10 @@ namespace Study;
 
 class ControlAsset
 {
-    public $attribute;
+    public $attribute = 'fiz';
 
     public function behavior()
     {
+        return 'foo';
     }
 }
