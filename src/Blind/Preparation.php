@@ -10,6 +10,9 @@ use Scientist\Experiment;
 use Scientist\SideEffects\MissingMethod;
 use Scientist\SideEffects\MissingProperty;
 use Scientist\Study;
+use Zend\Code\Generator\ClassGenerator;
+use Zend\Code\Generator\MethodGenerator;
+use Zend\Code\Reflection\ClassReflection;
 
 class Preparation
 {
@@ -17,28 +20,25 @@ class Preparation
      * @param Study $study
      * @param mixed $control
      * @param mixed[] $trials
+     * @param string[] $interfaces that blind should satisfy
      */
-    public function prepare(Study $study, $control, array $trials)
+    public function prepare(Study $study, $control, array $trials, array $interfaces = [])
     {
         $experiments = $this->createExperiments($study, $control, $trials);
         return $this->createBlind($study, $control, $experiments);
     }
 
-    private function createBlind($study, $control, array $experiments)
+    private function createBlind($study, array $experiments, array $interfaces = [])
     {
         $blind_name = sprintf("Blind_%s", str_replace('.', '', uniqid('', true)));
-        $template = <<<'PHP'
-namespace Scientist\Blind;
-class %s extends \%s {
-    use \Scientist\Blind\DecoratorTrait;
-}
-PHP;
-        $blind_definition = sprintf($template,
-            $blind_name,
-            get_class($control)
-            );
 
-        eval($blind_definition);
+        $generator = new ClassGenerator($blind_name, 'Scientist\Blind');
+        $generator->setImplementedInterfaces($interfaces);
+        $generator->addUse(DecoratorTrait::class);
+
+        $this->getMethodImplementations($generator, $interfaces);
+
+        eval($generator->generate());
 
         $class_name = sprintf('Scientist\Blind\%s', $blind_name);
         return new $class_name($study, $experiments);
@@ -148,6 +148,24 @@ PHP;
         return function() use ($instance, $name) {
             throw new MissingMethod($instance, $name);
         };
+    }
+
+    private function getMethodImplementations(Classgenerator $classGenerator, array $interfaces)
+    {
+        $template = <<<'PHP'
+    $arguments = func_get_args();
+    $experiment = $this->getExperiment($this->getExperimentNameForMethod('%s'));
+    return call_user_func_array([$experiment, 'run'], $arguments);
+PHP;
+
+        foreach($interfaces as $interface) {
+            $reflection = new ClassReflection($interface);
+            foreach($reflection->getMethods() as $method) {
+                $generator = MethodGenerator::fromReflection($method);
+                $generator->setBody(sprintf($template, $method->getName()));
+                $classGenerator->addMethodFromGenerator($generator);
+            }
+        }
     }
 
 }
