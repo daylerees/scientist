@@ -47,16 +47,17 @@ Journals allow experiment data to be sent to data stores for later inspection.
 
 Bridges allow for Scientist to be used seamlessly with other frameworks and libraries.
 
+- [Laravel](https://github.com/daylerees/scientist-laravel) by [Dayle Rees](https://github.com/daylerees) - *Use Scientist with the Laravel PHP framework.*
 - [Silex](https://packagist.org/packages/mauro-moreno/silex-scientist) by [Mauro Moreno](https://github.com/mauro-moreno) - *Use Scientist with the Silex micro-framework.*
 
 ### Matchers
 
 Matchers allow for complex types to be matched.
 
-- None yet. Build one?
+- *None yet. [Would you like to build one?](CONTRIBUTING.md)*
 
 ### Interfaces
 
 Interfaces allow for experiment data to be viewed in a clear way.
 
-- None yet. Build one?
+- *None yet. [Would you like to build one?](CONTRIBUTING.md)*
