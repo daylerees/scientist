@@ -14,12 +14,25 @@ use Scientist\Journals\Journal;
  */
 class Laboratory
 {
+    /** @var bool  */
+    protected $stopTrialsEarly = false;
+
     /**
      * Collection of journals to report to.
      *
      * @var array
      */
     protected $journals = [];
+
+    /**
+     * Experiments wont hide exceptions.
+     * @return $this
+     */
+    public function stopTrialsEarly()
+    {
+        $this->stopTrialsEarly = true;
+        return $this;
+    }
 
     /**
      * Register a collection of journals.
@@ -100,7 +113,12 @@ class Laboratory
      */
     public function getReport(Experiment $experiment)
     {
-        $report = (new Intern)->run($experiment);
+        $intern = new Intern;
+        if ($this->stopTrialsEarly) {
+            $intern->overreact();
+        }
+
+        $report = $intern->run($experiment);
         $this->reportToJournals($experiment, $report);
 
         return $report;
