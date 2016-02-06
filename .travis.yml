@@ -10,4 +10,4 @@ matrix:
     - php: nightly
 install:
   - composer install --dev
-script: ant
+script: vendor/bin/phing

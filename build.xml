@@ -3,7 +3,17 @@
     <!-- Execute code style check. -->
     <target name="phpcs">
         <echo>Running PHP PSR-2 code style checks.</echo>
-        <exec executable="vendor/bin/phpcs" failonerror="true">
+        <exec executable="vendor/bin/phpcs" passthru="true">
+            <arg value="--colors" />
+            <arg value="--standard=PSR2" />
+            <arg value="src" />
+        </exec>
+    </target>
+
+    <!-- Execute code style fix -->
+    <target name="phpcbf">
+        <echo>Running PHP PSR-2 code style fixes.</echo>
+        <exec executable="vendor/bin/phpcbf" passthru="true">
             <arg value="--colors" />
             <arg value="--standard=PSR2" />
             <arg value="src" />
@@ -13,7 +23,7 @@
     <!-- Execute PHP linting. -->
     <target name="phplint">
         <echo>Running PHP parallel linter.</echo>
-        <exec executable="vendor/bin/parallel-lint" failonerror="true">
+        <exec executable="vendor/bin/parallel-lint" passthru="true">
             <arg value="src" />
         </exec>
     </target>
@@ -21,7 +31,7 @@
     <!-- Execute PHPUnit tests. -->
     <target name="phpunit">
         <echo>Running PHP Unit tests.</echo>
-        <exec executable="vendor/bin/phpunit" failonerror="true">
+        <exec executable="vendor/bin/phpunit" passthru="true">
             <arg value="--color" />
         </exec>
     </target>
