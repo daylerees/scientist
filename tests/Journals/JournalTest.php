@@ -10,6 +10,7 @@ class JournalTest extends PHPUnit_Framework_TestCase
     public function test_that_journals_can_be_created()
     {
         $s = new StandardJournal;
+        $this->assertInstanceOf(StandardJournal::class, $s);
     }
 
     public function test_that_a_journal_can_be_added_to_a_laboratory()

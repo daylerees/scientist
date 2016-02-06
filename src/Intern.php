@@ -74,7 +74,7 @@ class Intern
      */
     protected function determineMatches(Matcher $matcher, Result $control, array $trials = [])
     {
-        foreach ($trials as $name => $trial) {
+        foreach ($trials as $trial) {
             if ($matcher->match($control->getValue(), $trial->getValue())) {
                 $trial->setMatch(true);
             }

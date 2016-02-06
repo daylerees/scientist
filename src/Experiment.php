@@ -257,14 +257,14 @@ class Experiment
     }
 
     /**
-     * Execute the experiment and return a result.
+     * Execute the experiment and return a report.
      *
      * @return \Scientist\Report
      */
-    public function result()
+    public function report()
     {
         $this->params = func_get_args();
 
-        return $this->laboratory->getResult($this);
+        return $this->laboratory->getReport($this);
     }
 }

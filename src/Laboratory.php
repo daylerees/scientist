@@ -81,8 +81,8 @@ class Laboratory
     public function runExperiment(Experiment $experiment)
     {
         if ($experiment->shouldRun()) {
-            $result = $this->getResult($experiment);
-            return $result->getControl()->getValue();
+            $report = $this->getReport($experiment);
+            return $report->getControl()->getValue();
         }
 
         return call_user_func_array(
@@ -98,26 +98,26 @@ class Laboratory
      *
      * @return \Scientist\Report
      */
-    public function getResult(Experiment $experiment)
+    public function getReport(Experiment $experiment)
     {
-        $result = (new Intern)->run($experiment);
-        $this->reportToJournals($experiment, $result);
+        $report = (new Intern)->run($experiment);
+        $this->reportToJournals($experiment, $report);
 
-        return $result;
+        return $report;
     }
 
     /**
      * Report experiment result to registered journals.
      *
      * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Report     $result
+     * @param \Scientist\Report     $report
      *
      * @return void
      */
-    protected function reportToJournals(Experiment $experiment, Report $result)
+    protected function reportToJournals(Experiment $experiment, Report $report)
     {
         foreach ($this->journals as $journal) {
-            $journal->report($experiment, $result);
+            $journal->report($experiment, $report);
         }
     }
 }
