@@ -57,6 +57,7 @@ Journals allow experiment data to be sent to data stores for later inspection.
 Bridges allow for Scientist to be used seamlessly with other frameworks and libraries.
 
 - [Laravel](https://github.com/daylerees/scientist-laravel) by [Dayle Rees](https://github.com/daylerees) - *Use Scientist with the Laravel PHP framework.*
+- [Symfony](https://packagist.org/packages/danhanly/scientist-symfony) by [Dan Hanly](https://github.com/danhanly) - *Use Scientist with the Symfony PHP framework.*
 - [Silex](https://packagist.org/packages/mauro-moreno/silex-scientist) by [Mauro Moreno](https://github.com/mauro-moreno) - *Use Scientist with the Silex micro-framework.*
 
 ### Matchers
