@@ -243,11 +243,13 @@ class Experiment
     /**
      * Execute the experiment within the laboratory.
      *
+     * @param mixed[] $params
+     *
      * @return mixed
      */
-    public function run()
+    public function run(...$params)
     {
-        $this->params = func_get_args();
+        $this->params = $params;
 
         if ($this->laboratory) {
             return $this->laboratory->runExperiment($this);
@@ -259,11 +261,13 @@ class Experiment
     /**
      * Execute the experiment and return a report.
      *
-     * @return \Scientist\Report
+     * @param mixed[] $params
+     *
+     * @return Report
      */
-    public function report()
+    public function report(...$params)
     {
-        $this->params = func_get_args();
+        $this->params = $params;
 
         return $this->laboratory->getReport($this);
     }
