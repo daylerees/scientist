@@ -64,7 +64,7 @@ Bridges allow for Scientist to be used seamlessly with other frameworks and libr
 
 Matchers allow for complex types to be matched.
 
-- *None yet. [Would you like to build one?](CONTRIBUTING.md)*
+- [Utility Matchers](https://packagist.org/packages/danhanly/scientist-utility-matcher) by [Dan Hanly](https://github.com/danhanly)
 
 ### Interfaces
 
