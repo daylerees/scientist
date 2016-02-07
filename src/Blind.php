@@ -3,7 +3,6 @@
 
 namespace Scientist;
 
-
 interface Blind
 {
 

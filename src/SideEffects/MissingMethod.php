@@ -3,7 +3,6 @@
 
 namespace Scientist\SideEffects;
 
-
 class MissingMethod extends \RuntimeException
 {
     /**
@@ -13,7 +12,8 @@ class MissingMethod extends \RuntimeException
      */
     public function __construct($instance, $method)
     {
-        parent::__construct(sprintf("%s does not implement method %s",
+        parent::__construct(sprintf(
+            "%s does not implement method %s",
             get_class($instance),
             $method
         ));

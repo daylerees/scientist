@@ -3,7 +3,6 @@
 
 namespace Scientist\Blind;
 
-
 use ReflectionClass;
 use ReflectionProperty;
 use Scientist\Blind;
@@ -43,8 +42,8 @@ class Preparation
 
         array_push($interfaces, Blind::class);
 
-        foreach($interfaces as &$interface) {
-            if(strpos($interface, '\\') !== 0) {
+        foreach ($interfaces as &$interface) {
+            if (strpos($interface, '\\') !== 0) {
                 $interface = '\\'.$interface;
             }
         }
@@ -72,10 +71,10 @@ class Preparation
     {
         $experiments = [];
         $reflection = new ReflectionClass($control);
-        foreach($reflection->getMethods() as $method) {
+        foreach ($reflection->getMethods() as $method) {
             $experiments[] = $this->createMethodExperiment($method->getName(), $study, $control, $trials);
         }
-        foreach($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
+        foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
             $experiments[] = $this->createPropertyExperiment($property->getName(), $study, $control, $trials);
         }
         return $experiments;
@@ -97,8 +96,8 @@ class Preparation
 
         $experiment->control([$control, $name]);
 
-        foreach($trials as $trial_name => $trial) {
-            if(method_exists($trial, $name)){
+        foreach ($trials as $trial_name => $trial) {
+            if (method_exists($trial, $name)) {
                 $experiment->trial($trial_name, [$trial, $name]);
             } else {
                 $experiment->trial($trial_name, $this->createMissingMethodCallable($trial, $name));
@@ -120,8 +119,8 @@ class Preparation
 
         $experiment->control($this->createPropertyCallable($control, $name));
 
-        foreach($trials as $trial_name => $trial) {
-            if(property_exists($trial, $name)){
+        foreach ($trials as $trial_name => $trial) {
+            if (property_exists($trial, $name)) {
                 $experiment->trial($trial_name, $this->createPropertyCallable($trial, $name));
             } else {
                 $experiment->trial($trial_name, $this->createMissingPropertyCallable($trial, $name));
@@ -141,10 +140,10 @@ class Preparation
      */
     private function createPropertyCallable($instance, $name)
     {
-        return function() use ($instance, $name) {
+        return function () use ($instance, $name) {
             $args = func_get_args();
             // __set
-            if(count($args) > 1) {
+            if (count($args) > 1) {
                 list($name, $value) = $args;
                 return $instance->{$name} = $value;
             }
@@ -156,14 +155,14 @@ class Preparation
 
     private function createMissingPropertyCallable($instance, $name)
     {
-        return function() use ($instance, $name) {
+        return function () use ($instance, $name) {
             throw new MissingProperty($instance, $name);
         };
     }
 
     private function createMissingMethodCallable($instance, $name)
     {
-        return function() use ($instance, $name) {
+        return function () use ($instance, $name) {
             throw new MissingMethod($instance, $name);
         };
     }
@@ -176,9 +175,9 @@ class Preparation
     return call_user_func_array([$experiment, 'run'], $arguments);
 PHP;
 
-        foreach($interfaces as $interface) {
+        foreach ($interfaces as $interface) {
             $reflection = new ClassReflection($interface);
-            foreach($reflection->getMethods() as $method) {
+            foreach ($reflection->getMethods() as $method) {
                 $generator = MethodGenerator::fromReflection($method);
                 $generator->setInterface(false);
                 $generator->setBody(sprintf($template, $method->getName()));
@@ -186,5 +185,4 @@ PHP;
             }
         }
     }
-
 }

@@ -3,7 +3,6 @@
 
 namespace Scientist\Blind;
 
-
 use Scientist\Experiment;
 use Scientist\Study;
 
@@ -36,7 +35,8 @@ trait DecoratorTrait
      * @param string $name
      * @return Experiment
      */
-    private function getExperiment($name) {
+    private function getExperiment($name)
+    {
         return $this->experiments[$name];
     }
 
@@ -48,7 +48,7 @@ trait DecoratorTrait
     function __construct(Study $study, array $experiments = [])
     {
         $this->study = $study;
-        foreach($experiments as $experiment) {
+        foreach ($experiments as $experiment) {
             $this->experiments[$experiment->getName()] = $experiment;
         }
     }

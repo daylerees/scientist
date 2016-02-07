@@ -3,7 +3,6 @@
 
 namespace Scientist\SideEffects;
 
-
 class MissingProperty extends \RuntimeException
 {
     /**
@@ -13,9 +12,10 @@ class MissingProperty extends \RuntimeException
      */
     public function __construct($instance, $property)
     {
-        parent::__construct(sprintf("%s does not implement property %s",
+        parent::__construct(sprintf(
+            "%s does not implement property %s",
             get_class($instance),
             $property
-            ));
+        ));
     }
 }

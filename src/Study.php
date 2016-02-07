@@ -3,7 +3,6 @@
 
 namespace Scientist;
 
-
 use Scientist\Blind\Preparation;
 use Scientist\Matchers\StandardMatcher;
 
@@ -202,7 +201,7 @@ class Study
     public function blind($interface = null)
     {
         $interfaces = func_get_args();
-        if($interface == null) {
+        if ($interface == null) {
             array_shift($interfaces);
         }
 
