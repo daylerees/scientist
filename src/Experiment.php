@@ -67,7 +67,7 @@ class Experiment
     /**
      * Create a new experiment.
      *
-     * @param string                     $name
+     * @param string                $name
      * @param \Scientist\Laboratory $laboratory
      */
     public function __construct($name, Laboratory $laboratory)

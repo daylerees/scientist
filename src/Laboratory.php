@@ -17,7 +17,7 @@ class Laboratory
     /**
      * Collection of journals to report to.
      *
-     * @var Journal[]
+     * @var \Scientist\Journals\Journal[]
      */
     protected $journals = [];
 
