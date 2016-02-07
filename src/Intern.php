@@ -48,7 +48,7 @@ class Intern
      *
      * @param \Scientist\Experiment $experiment
      *
-     * @return array
+     * @return \Scientist\Result[]
      */
     protected function runTrials(Experiment $experiment)
     {
@@ -70,7 +70,7 @@ class Intern
      *
      * @param \Scientist\Matchers\Matcher $matcher
      * @param \Scientist\Result           $control
-     * @param array                       $trials
+     * @param \Scientist\Result[]         $trials
      */
     protected function determineMatches(Matcher $matcher, Result $control, array $trials = [])
     {
