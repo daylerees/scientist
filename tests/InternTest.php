@@ -1,9 +1,9 @@
 <?php
 
 use Scientist\Intern;
-use Scientist\Laboratory;
 use Scientist\Report;
 use Scientist\Experiment;
+use Scientist\Laboratory;
 
 class InternTest extends PHPUnit_Framework_TestCase
 {
