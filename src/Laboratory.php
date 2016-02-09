@@ -85,7 +85,16 @@ class Laboratory
     {
         if ($experiment->shouldRun()) {
             $report = $this->getReport($experiment);
-            return $report->getControl()->getValue();
+            if (is_array($report)) {
+                $values = [];
+                foreach ($report as $item) {
+                    $values[] = $item->getControl()->getValue();
+                }
+
+                return implode(',', $values);
+            } else {
+                return $report->getControl()->getValue();
+            }
         }
 
         return call_user_func_array(
@@ -112,15 +121,21 @@ class Laboratory
     /**
      * Report experiment result to registered journals.
      *
-     * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Report     $report
+     * @param \Scientist\Experiment   $experiment
+     * @param \Scientist\Report|array $report
      *
      * @return void
      */
-    protected function reportToJournals(Experiment $experiment, Report $report)
+    protected function reportToJournals(Experiment $experiment, $report)
     {
         foreach ($this->journals as $journal) {
-            $journal->report($experiment, $report);
+            if (is_array($report)) {
+                foreach ($report as $item) {
+                    $journal->report($experiment, $item);
+                }
+            } else {
+                $journal->report($experiment, $report);
+            }
         }
     }
 }

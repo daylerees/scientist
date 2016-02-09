@@ -57,4 +57,34 @@ class InternTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($v->getTrial('bar')->isMatch());
         $this->assertFalse($v->getTrial('baz')->isMatch());
     }
+
+    public function test_that_intern_can_mismatch_multiple_params()
+    {
+        $sum_closure = function ($a, $b) { return $a + $b; };
+        $wrong_sum_closure = function ($a, $b) { return $a * $b; };
+        $i = new Intern;
+        $e = new Experiment('test experiment', new Laboratory);
+        $e->control($sum_closure);
+        $e->trial('sum', $wrong_sum_closure);
+        $e->report([[2, 2], [2, 3]]);
+        $v = $i->run($e);
+        $this->assertTrue(is_array($v));
+        $this->assertTrue($v[0]->getTrial('sum')[0]->isMatch());
+        $this->assertFalse($v[0]->getTrial('sum')[1]->isMatch());
+    }
+
+    public function test_that_intern_can_match_multiple_params()
+    {
+        $sum_closure = function ($a, $b) { return $a + $b; };
+        $inverse_sum_closure = function ($a, $b) { return $b + $a; };
+        $i = new Intern;
+        $e = new Experiment('test experiment', new Laboratory);
+        $e->control($sum_closure);
+        $e->trial('sum', $inverse_sum_closure);
+        $e->report([[2, 2], [2, 3]]);
+        $v = $i->run($e);
+        $this->assertTrue(is_array($v));
+        $this->assertTrue($v[0]->getTrial('sum')[0]->isMatch());
+        $this->assertTrue($v[0]->getTrial('sum')[1]->isMatch());
+    }
 }
