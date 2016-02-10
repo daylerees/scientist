@@ -64,9 +64,9 @@ class MachineTest extends PHPUnit_Framework_TestCase
         $m = new Machine(function () {});
 
         $s = microtime(true);
-        sleep(0.01);
+        sleep(0.3);
         $r = $m->execute();
-        sleep(0.01);
+        sleep(0.3);
         $e = microtime(true);
 
         $this->assertInternalType('float', $r->getStartTime());
