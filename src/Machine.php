@@ -141,16 +141,18 @@ class Machine
      *
      * @return void
      */
-    private function addOutputBufferToResult()
+    protected function addOutputBufferToResult()
     {
         $echoedOutput = ob_get_contents();
         $this->result->setEchoValue($echoedOutput);
     }
 
     /**
+     * Execute the callback and build the result
+     *
      * @return void
      */
-    private function execute()
+    protected function execute()
     {
         $this->setStartValues();
         $this->executeCallback();
