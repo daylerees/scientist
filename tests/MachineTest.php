@@ -24,14 +24,14 @@ class MachineTest extends PHPUnit_Framework_TestCase
     {
         $m = new Machine(function () {});
 
-        $this->assertInstanceOf(Result::class, $m->execute());
+        $this->assertInstanceOf(Result::class, $m->executeQuietly());
     }
 
     public function test_that_machine_determines_callback_result_value()
     {
         $m = new Machine(function () { return 'foo'; });
 
-        $this->assertEquals('foo', $m->execute()->getValue());
+        $this->assertEquals('foo', $m->executeQuietly()->getValue());
     }
 
     public function test_that_machine_executes_callback_with_parameters()
@@ -40,7 +40,7 @@ class MachineTest extends PHPUnit_Framework_TestCase
             return $one + $two + $three;
         }, [1, 2, 3], true);
 
-        $this->assertEquals(6, $m->execute()->getValue());
+        $this->assertEquals(6, $m->executeQuietly()->getValue());
     }
 
     public function test_that_exceptions_can_be_thrown_by_machine_callback_execution()
@@ -49,22 +49,45 @@ class MachineTest extends PHPUnit_Framework_TestCase
 
         $this->setExpectedException(Exception::class);
 
-        $m->execute();
+        $m->executeQuietly();
     }
 
     public function test_that_machine_can_mute_exceptions_from_callback()
     {
         $m = new Machine(function () { throw new Exception('foo'); }, [], true);
 
-        $this->assertEquals(null, $m->execute()->getValue());
+        $this->assertEquals(null, $m->executeQuietly()->getValue());
     }
+
+    public function test_that_machine_intercepts_anything_echoed_out()
+    {
+        ob_start();
+        $m = new Machine(function () { echo "hello machine"; }, []);
+        $result = $m->executeQuietly();
+        $leakedEcho = ob_get_clean();
+
+        $this->assertEquals('', $leakedEcho);
+        $this->assertEquals("hello machine", $result->getEchoValue());
+    }
+
+    public function test_that_machine_can_allow_echoing_if_required()
+    {
+        ob_start();
+        $m = new Machine(function () { echo "hello machine"; }, []);
+        $result = $m->executeLoudly();
+        $echoReceived = ob_get_clean();
+
+        $this->assertEquals('hello machine', $echoReceived);
+        $this->assertEquals("hello machine", $result->getEchoValue());
+    }
+
 
     public function test_that_machine_can_determine_start_and_end_times_for_callbacks()
     {
         $m = new Machine(function () {});
 
         $s = microtime(true) - 60;
-        $r = $m->execute();
+        $r = $m->executeQuietly();
         $e = microtime(true) + 60;
 
         $this->assertInternalType('float', $r->getStartTime());
@@ -79,7 +102,7 @@ class MachineTest extends PHPUnit_Framework_TestCase
     {
         $m = new Machine(function () {});
 
-        $r = $m->execute();
+        $r = $m->executeQuietly();
 
         $this->assertInternalType('integer', $r->getStartMemory());
         $this->assertInternalType('integer', $r->getEndMemory());

@@ -56,15 +56,31 @@ class Machine
     }
 
     /**
-     * Execute the callback and retrieve a result.
+     * Execute the callback and retrieve a result. Any output from
+     * echo commands will be intercepted and stored in the result.
      *
      * @return \Scientist\Result
      */
-    public function execute()
+    public function executeQuietly()
     {
-        $this->setStartValues();
-        $this->executeCallback();
-        $this->setEndValues();
+        ob_start();
+        $this->execute();
+        ob_end_clean();
+
+        return $this->result;
+    }
+
+    /**
+     * Execute the callback and retrieve a result. Any output from
+     * echo commands will be output as normal.
+     *
+     * @return Result
+     */
+    public function executeLoudly()
+    {
+        ob_start();
+        $this->execute();
+        ob_end_flush();
 
         return $this->result;
     }
@@ -118,5 +134,29 @@ class Machine
     {
         $this->result->setEndTime(microtime(true));
         $this->result->setEndMemory(memory_get_usage());
+    }
+
+    /**
+     * Flushes & cleans the buffer and adds this to the result.
+     *
+     * @return void
+     */
+    protected function addOutputBufferToResult()
+    {
+        $echoedOutput = ob_get_contents();
+        $this->result->setEchoValue($echoedOutput);
+    }
+
+    /**
+     * Execute the callback and build the result
+     *
+     * @return void
+     */
+    protected function execute()
+    {
+        $this->setStartValues();
+        $this->executeCallback();
+        $this->setEndValues();
+        $this->addOutputBufferToResult();
     }
 }
