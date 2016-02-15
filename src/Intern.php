@@ -40,7 +40,7 @@ class Intern
      */
     protected function runControl(Experiment $experiment)
     {
-        return (new Machine($experiment->getControl(), $experiment->getParams()))->executeQuietly();
+        return (new Machine($experiment->getControl(), $experiment->getParams()))->executeLoudly();
     }
 
     /**
