@@ -64,6 +64,13 @@ class Result
     protected $match = false;
 
     /**
+     * Anything 'echo'ed out by the experiment.
+     *
+     * @var string
+     */
+    protected $echoValue;
+
+    /**
      * Get the callback result value.
      *
      * @return mixed
@@ -248,6 +255,31 @@ class Result
     {
         $this->match = $match;
 
+        return $this;
+    }
+
+    /**
+     * Returns the value of any output that occurred during executing the
+     * callback.
+     *
+     * @return string
+     */
+    public function getEchoValue()
+    {
+        return $this->echoValue;
+    }
+
+    /**
+     * Sets the value of any output that occurred during executing the
+     * callback.
+     *
+     * @param string $value
+     *
+     * @return $this
+     */
+    public function setEchoValue($value)
+    {
+        $this->echoValue = $value;
         return $this;
     }
 }

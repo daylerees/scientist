@@ -62,9 +62,11 @@ class Machine
      */
     public function execute()
     {
+        ob_start();
         $this->setStartValues();
         $this->executeCallback();
         $this->setEndValues();
+        $this->addOutputBufferToResult();
 
         return $this->result;
     }
@@ -118,5 +120,16 @@ class Machine
     {
         $this->result->setEndTime(microtime(true));
         $this->result->setEndMemory(memory_get_usage());
+    }
+
+    /**
+     * Flushes & cleans the buffer and adds this to the result.
+     *
+     * @return void
+     */
+    private function addOutputBufferToResult()
+    {
+        $echoedOutput = ob_get_clean();
+        $this->result->setEchoValue($echoedOutput);
     }
 }

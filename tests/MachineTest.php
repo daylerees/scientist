@@ -59,6 +59,18 @@ class MachineTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(null, $m->execute()->getValue());
     }
 
+    public function test_that_machine_intercepts_anything_echoed_out()
+    {
+        ob_start();
+        $m = new Machine(function () { echo "hello machine"; }, []);
+        $result = $m->execute();
+        $leakedEcho = ob_get_clean();
+
+        $this->assertEquals('', $leakedEcho);
+        $this->assertEquals("hello machine", $result->getEchoValue());
+    }
+
+
     public function test_that_machine_can_determine_start_and_end_times_for_callbacks()
     {
         $m = new Machine(function () {});
