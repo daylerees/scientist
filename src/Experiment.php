@@ -247,6 +247,6 @@ class Experiment
     {
         $this->params = func_get_args();
 
-        return $this->laboratory->getReport($this);
+        return $this->laboratory->createReport($this);
     }
 }

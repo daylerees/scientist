@@ -84,7 +84,7 @@ class Laboratory
     public function runExperiment(Experiment $experiment)
     {
         if ($experiment->shouldRun()) {
-            $report = $this->getReport($experiment);
+            $report = $this->createReport($experiment);
             return $report->getControl()->getValue();
         }
 
@@ -101,7 +101,7 @@ class Laboratory
      *
      * @return \Scientist\Report
      */
-    public function getReport(Experiment $experiment)
+    public function createReport(Experiment $experiment)
     {
         $report = (new Intern)->run($experiment);
         $this->reportToJournals($experiment, $report);
