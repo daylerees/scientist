@@ -3,12 +3,13 @@
 # Scientist
 
 [![Build Status](https://travis-ci.org/daylerees/scientist.svg?branch=master)](https://travis-ci.org/daylerees/scientist)
-[![Packagist Version](https://img.shields.io/packagist/v/daylerees/scientist.svg)](https://packagist.org/packages/daylerees/scientist)
-[![HHVM Tested](https://img.shields.io/hhvm/daylerees/scientist.svg)](https://travis-ci.org/daylerees/scientist)
-[![Packagist](https://img.shields.io/packagist/dt/daylerees/scientist.svg)](https://packagist.org/packages/daylerees/scientist)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/daylerees/scientist/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/daylerees/scientist/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/daylerees/scientist/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/daylerees/scientist/?branch=master)
 [![Code Climate](https://codeclimate.com/github/daylerees/scientist/badges/gpa.svg)](https://codeclimate.com/github/daylerees/scientist)
+[![HHVM Tested](https://img.shields.io/hhvm/daylerees/scientist.svg)](https://travis-ci.org/daylerees/scientist)
+
+[![Packagist Version](https://img.shields.io/packagist/v/daylerees/scientist.svg)](https://packagist.org/packages/daylerees/scientist)
+[![Packagist](https://img.shields.io/packagist/dt/daylerees/scientist.svg)](https://packagist.org/packages/daylerees/scientist)
 
 A PHP experiment library inspired by Github's own [Scientist](https://github.com/github/scientist).
 
@@ -23,11 +24,19 @@ Simply define an experiment, sit back, and let the results flow in.
 ```php
 <?php
 
+// We need a Laboratory to do science.
 $experiment = (new Scientist\Laboratory)
-  ->experiment('experiment title')
-  ->control($controlCallback)
-  ->trial('trial name', $trialCallback);
 
+    // Define an experiment with a name.
+    ->experiment('experiment title')
+    
+    // Set a callback containing our control code.
+    ->control($controlCallback)
+    
+    // Set a callback containing our trial code.
+    ->trial('trial name', $trialCallback);
+
+// Run the experiment, receiving the control return value.
 $value = $experiment->run();
 ```
 
@@ -48,13 +57,14 @@ Journals allow experiment data to be sent to data stores for later inspection.
 Bridges allow for Scientist to be used seamlessly with other frameworks and libraries.
 
 - [Laravel](https://github.com/daylerees/scientist-laravel) by [Dayle Rees](https://github.com/daylerees) - *Use Scientist with the Laravel PHP framework.*
+- [Symfony](https://packagist.org/packages/danhanly/scientist-symfony) by [Dan Hanly](https://github.com/danhanly) - *Use Scientist with the Symfony PHP framework.*
 - [Silex](https://packagist.org/packages/mauro-moreno/silex-scientist) by [Mauro Moreno](https://github.com/mauro-moreno) - *Use Scientist with the Silex micro-framework.*
 
 ### Matchers
 
 Matchers allow for complex types to be matched.
 
-- *None yet. [Would you like to build one?](CONTRIBUTING.md)*
+- [Utility Matchers](https://packagist.org/packages/danhanly/scientist-utility-matcher) by [Dan Hanly](https://github.com/danhanly)
 
 ### Interfaces
 

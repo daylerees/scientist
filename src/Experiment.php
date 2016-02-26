@@ -46,7 +46,7 @@ class Experiment
     /**
      * Laboratory instance.
      *
-     * @var \Scientist\Laboratory|null
+     * @var \Scientist\Laboratory
      */
     protected $laboratory;
 
@@ -67,10 +67,10 @@ class Experiment
     /**
      * Create a new experiment.
      *
-     * @param string                     $name
-     * @param \Scientist\Laboratory|null $laboratory
+     * @param string                $name
+     * @param \Scientist\Laboratory $laboratory
      */
-    public function __construct($name, $laboratory = null)
+    public function __construct($name, Laboratory $laboratory)
     {
         $this->name = $name;
         $this->laboratory = $laboratory;
@@ -85,20 +85,6 @@ class Experiment
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set the laboratory instance.
-     *
-     * @param \Scientist\Laboratory $laboratory
-     *
-     * @return $this
-     */
-    public function setLaboratory(Laboratory $laboratory)
-    {
-        $this->laboratory = $laboratory;
-
-        return $this;
     }
 
     /**
@@ -249,11 +235,7 @@ class Experiment
     {
         $this->params = func_get_args();
 
-        if ($this->laboratory) {
-            return $this->laboratory->runExperiment($this);
-        }
-
-        return call_user_func($this->control, $this->params);
+        return $this->laboratory->runExperiment($this);
     }
 
     /**

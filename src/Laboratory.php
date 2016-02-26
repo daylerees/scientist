@@ -17,7 +17,7 @@ class Laboratory
     /**
      * Collection of journals to report to.
      *
-     * @var array
+     * @var \Scientist\Journals\Journal[]
      */
     protected $journals = [];
 
@@ -30,7 +30,10 @@ class Laboratory
      */
     public function setJournals(array $journals = [])
     {
-        $this->journals = $journals;
+        $this->journals = [];
+        foreach ($journals as $journal) {
+            $this->addJournal($journal);
+        }
 
         return $this;
     }
@@ -68,7 +71,7 @@ class Laboratory
      */
     public function experiment($name)
     {
-        return (new Experiment($name))->setLaboratory($this);
+        return (new Experiment($name, $this));
     }
 
     /**

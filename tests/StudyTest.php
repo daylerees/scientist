@@ -131,7 +131,7 @@ class StudyTest extends PHPUnit_Framework_TestCase
     public function test_that_an_experiment_can_be_added()
     {
         $study = new Study('test');
-        $e = new Experiment('experiment');
+        $e = new Experiment('experiment', new Laboratory());
         $study->addExperiment($e);
         $this->assertSame($e, $study->getExperiment('experiment'));
         $this->assertEquals(['experiment' => $e], $study->getExperiments());

@@ -11,13 +11,14 @@
         }
     ],
     "require": {
-        "php": ">=5.5",
-        "zendframework/zend-code": ">=2"
+        "zendframework/zend-code": ">=2",
+        "php": "^5.5 || ^7.0"
     },
     "require-dev": {
         "phpunit/phpunit": ">=4.8",
         "squizlabs/php_codesniffer": "^2.5",
-        "jakub-onderka/php-parallel-lint": "^0.9.2"
+        "jakub-onderka/php-parallel-lint": "^0.9.2",
+        "phing/phing": "^2.13"
     },
     "autoload": {
         "psr-4": {
