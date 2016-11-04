@@ -31,7 +31,7 @@
     <!-- Execute PHPUnit tests. -->
     <target name="phpunit">
         <echo>Running PHP Unit tests.</echo>
-        <exec executable="vendor/bin/phpunit" passthru="true">
+        <exec executable="vendor/bin/phpunit" passthru="true" checkreturn="true">
             <arg value="--color" />
         </exec>
     </target>
