@@ -17,7 +17,7 @@ class StandardChanceTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->generator = $this->createMock('\RandomLib\Generator');
+        $this->generator = $this->getMockGenerator();
         $this->chance = new StandardChance($this->generator);
     }
 
@@ -144,5 +144,13 @@ class StandardChanceTest extends \PHPUnit_Framework_TestCase
         return array_map(function ($value) {
             return [$value];
         }, range(0, 100));
+    }
+
+    public function getMockGenerator()
+    {
+        return $this->getMockBuilder('\RandomLib\Generator')
+            ->disableOriginalConstructor()
+            ->disableProxyingToOriginalMethods()
+            ->getMock();
     }
 }
