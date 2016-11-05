@@ -63,9 +63,10 @@ class ExperimentTest extends PHPUnit_Framework_TestCase
 
     public function test_that_a_chance_variable_can_be_set()
     {
+        $chance = $this->createMock('\Scientist\Chances\Chance');
         $e = new Experiment('test experiment', new Laboratory);
-        $e->chance(50);
-        $this->assertEquals(50, $e->getChance());
+        $e->chance($chance);
+        $this->assertEquals($chance, $e->getChance());
     }
 
     public function test_that_an_experiment_matcher_can_be_set()
@@ -93,10 +94,15 @@ class ExperimentTest extends PHPUnit_Framework_TestCase
 
     public function test_that_running_experiment_with_zero_chance_executes_control()
     {
+        $chance = $this->createMock('\Scientist\Chances\Chance');
+        $chance->expects($this->once())
+            ->method('shouldRun')
+            ->willReturn(false);
+
         $l = new Laboratory;
         $v = $l->experiment('test experiment')
             ->control(function () { return 'foo'; })
-            ->chance(0)
+            ->chance($chance)
             ->run();
 
         $this->assertEquals('foo', $v);
