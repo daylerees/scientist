@@ -19,16 +19,32 @@ class Intern
      *
      * @param \Scientist\Experiment $experiment
      *
-     * @return \Scientist\Report
+     * @return \Scientist\Report|\Scientist\Report[]
      */
     public function run(Experiment $experiment)
     {
         $control = $this->runControl($experiment);
         $trials  = $this->runTrials($experiment);
 
-        $this->determineMatches($experiment->getMatcher(), $control, $trials);
+        if (is_array($control)) {
+            $reports = [];
+            foreach ($control as $key => $control_item) {
+                $this->determineMatches(
+                    $experiment->getMatcher(),
+                    $control_item,
+                    $trials,
+                    $key
+                );
 
-        return new Report($experiment->getName(), $control, $trials);
+                $reports[] = new Report($experiment->getName(), $control_item, $trials);
+            }
+
+            return $reports;
+        } else {
+            $this->determineMatches($experiment->getMatcher(), $control, $trials);
+
+            return new Report($experiment->getName(), $control, $trials);
+        }
     }
 
     /**
@@ -36,11 +52,28 @@ class Intern
      *
      * @param \Scientist\Experiment $experiment
      *
-     * @return \Scientist\Result
+     * @return \Scientist\Result|\Scientist\Result[]
      */
     protected function runControl(Experiment $experiment)
     {
-        return (new Machine($experiment->getControl(), $experiment->getParams()))->execute();
+        if (count($experiment->getParams())
+            === count($experiment->getParams(), COUNT_RECURSIVE)) {
+            return (new Machine(
+                $experiment->getControl(),
+                $experiment->getParams()
+            ))->execute();
+        } else {
+            $executions = [];
+
+            foreach ($experiment->getParams()[0] as $individual_params) {
+                $executions[] = (new Machine(
+                    $experiment->getControl(),
+                    $individual_params
+                ))->execute();
+            }
+
+            return $executions;
+        }
     }
 
     /**
@@ -55,11 +88,23 @@ class Intern
         $executions = [];
 
         foreach ($experiment->getTrials() as $name => $trial) {
-            $executions[$name] = (new Machine(
-                $trial,
-                $experiment->getParams(),
-                true
-            ))->execute();
+            if (count($experiment->getParams())
+                === count($experiment->getParams(), COUNT_RECURSIVE)) {
+                $executions[$name] = (new Machine(
+                    $trial,
+                    $experiment->getParams(),
+                    true
+                ))->execute();
+            } else {
+                foreach ($experiment->getParams()[0] as $individual_params) {
+                    $executions[$name][] = (new Machine(
+                        $trial,
+                        $individual_params,
+                        true
+                    ))->execute();
+                }
+            }
+
         }
 
         return $executions;
@@ -71,12 +116,23 @@ class Intern
      * @param \Scientist\Matchers\Matcher $matcher
      * @param \Scientist\Result           $control
      * @param \Scientist\Result[]         $trials
+     * @param int|null                    $key
      */
-    protected function determineMatches(Matcher $matcher, Result $control, array $trials = [])
-    {
+    protected function determineMatches(
+        Matcher $matcher,
+        Result $control,
+        array $trials = [],
+        $key = null
+    ) {
         foreach ($trials as $trial) {
-            if ($matcher->match($control->getValue(), $trial->getValue())) {
-                $trial->setMatch(true);
+            if ($key !== null) {
+                if ($matcher->match($control->getValue(), $trial[$key]->getValue())) {
+                    $trial[$key]->setMatch(true);
+                }
+            } else {
+                if ($matcher->match($control->getValue(), $trial->getValue())) {
+                    $trial->setMatch(true);
+                }
             }
         }
     }
