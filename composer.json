@@ -11,6 +11,7 @@
         }
     ],
     "require": {
+        "zendframework/zend-code": ">=2",
         "php": "^5.5 || ^7.0"
     },
     "require-dev": {
@@ -22,6 +23,11 @@
     "autoload": {
         "psr-4": {
             "Scientist\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "tests"
         }
     }
 }
