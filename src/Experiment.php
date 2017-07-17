@@ -213,7 +213,7 @@ class Experiment
      */
     public function shouldRun()
     {
-        return rand(0, 100) <= $this->chance;
+        return rand(1, 100) <= $this->chance;
     }
 
     /**
