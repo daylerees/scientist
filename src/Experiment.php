@@ -2,6 +2,8 @@
 
 namespace Scientist;
 
+use Scientist\Chances\Chance;
+use Scientist\Chances\StandardChance;
 use Scientist\Matchers\Matcher;
 use Scientist\Matchers\StandardMatcher;
 
@@ -60,9 +62,9 @@ class Experiment
     /**
      * Execution chance.
      *
-     * @var integer
+     * @var \Scientist\Chances\Chance
      */
-    protected $chance = 100;
+    protected $chance;
 
     /**
      * Create a new experiment.
@@ -75,6 +77,7 @@ class Experiment
         $this->name = $name;
         $this->laboratory = $laboratory;
         $this->matcher = new StandardMatcher;
+        $this->chance = new StandardChance;
     }
 
     /**
@@ -185,13 +188,13 @@ class Experiment
     /**
      * Set the execution chance.
      *
-     * @param integer $chance
+     * @param Chances\Chance $chance
      *
      * @return $this
      */
-    public function chance($chance)
+    public function chance(Chance $chance)
     {
-        $this->chance = (int) $chance;
+        $this->chance = $chance;
 
         return $this;
     }
@@ -199,7 +202,7 @@ class Experiment
     /**
      * Get the execution chance.
      *
-     * @return integer
+     * @return Chances\Chance
      */
     public function getChance()
     {
@@ -213,7 +216,8 @@ class Experiment
      */
     public function shouldRun()
     {
-        return rand(0, 100) <= $this->chance;
+        return $this->chance
+            ->shouldRun();
     }
 
     /**

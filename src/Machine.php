@@ -52,7 +52,6 @@ class Machine
         $this->params   = $params;
         $this->muted    = $muted;
         $this->result   = new Result;
-
     }
 
     /**
