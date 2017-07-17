@@ -14,6 +14,17 @@ use Scientist\Matchers\Matcher;
  */
 class Intern
 {
+    /** @var bool  */
+    protected $overreact = false;
+
+    /**
+     * Exceptions will be thrown from experiments
+     */
+    public function overreact()
+    {
+        $this->overreact = true;
+    }
+
     /**
      * Run an experiment, and retrieve the result.
      *
@@ -58,7 +69,7 @@ class Intern
             $executions[$name] = (new Machine(
                 $trial,
                 $experiment->getParams(),
-                true
+                (! $this->overreact)
             ))->execute();
         }
 

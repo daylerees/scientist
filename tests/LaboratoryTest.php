@@ -74,6 +74,18 @@ class LaboratoryTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Exception::class, $r->getTrial('trial')->getException());
     }
 
+    public function test_that_exceptions_are_thrown_in_trials_if_trials_should_stop_early()
+    {
+        $this->setExpectedException(Exception::class);
+
+        $l = (new Laboratory)
+            ->stopTrialsEarly()
+            ->experiment('test experiment')
+            ->control(function () { return 'foo'; })
+            ->trial('trial', function () { throw new Exception; })
+            ->run();
+    }
+
     public function test_that_control_and_trials_receive_parameters()
     {
         $r = (new Laboratory)
