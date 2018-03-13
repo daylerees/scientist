@@ -3,7 +3,7 @@
 use Scientist\Result;
 use Scientist\Report;
 
-class ReportTest extends PHPUnit_Framework_TestCase
+class ReportTest extends \PHPUnit\Framework\TestCase
 {
     public function test_that_report_can_be_created()
     {

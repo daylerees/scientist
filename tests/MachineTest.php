@@ -3,7 +3,7 @@
 use Scientist\Result;
 use Scientist\Machine;
 
-class MachineTest extends PHPUnit_Framework_TestCase
+class MachineTest extends \PHPUnit\Framework\TestCase
 {
     public function test_that_machine_can_be_created()
     {

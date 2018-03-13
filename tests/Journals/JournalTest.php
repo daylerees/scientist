@@ -5,7 +5,7 @@ use Scientist\Laboratory;
 use Scientist\Experiment;
 use Scientist\Journals\StandardJournal;
 
-class JournalTest extends PHPUnit_Framework_TestCase
+class JournalTest extends \PHPUnit\Framework\TestCase
 {
     public function test_that_journals_can_be_created()
     {
