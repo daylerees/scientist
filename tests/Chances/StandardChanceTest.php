@@ -3,7 +3,7 @@ namespace Scientist\Chances;
 
 use RandomLib\Generator;
 
-class StandardChanceTest extends \PHPUnit_Framework_TestCase
+class StandardChanceTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var StandardChance

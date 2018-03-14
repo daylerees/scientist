@@ -2,7 +2,7 @@
 
 use Scientist\Matchers\ClosureMatcher;
 
-class ClosureMatcherTest extends PHPUnit_Framework_TestCase
+class ClosureMatcherTest extends \PHPUnit\Framework\TestCase
 {
     private function getClosure()
     {

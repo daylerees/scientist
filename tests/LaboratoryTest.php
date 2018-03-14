@@ -3,7 +3,7 @@
 use Scientist\Report;
 use Scientist\Laboratory;
 
-class LaboratoryTest extends PHPUnit_Framework_TestCase
+class LaboratoryTest extends \PHPUnit\Framework\TestCase
 {
     public function test_laboratory_can_be_created()
     {
