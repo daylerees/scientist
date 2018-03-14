@@ -6,7 +6,9 @@ class ResultTest extends \PHPUnit\Framework\TestCase
 {
     public function test_result_can_be_created()
     {
-        new Result;
+        $r = new Result;
+        
+        $this->assertInstanceOf(Result::class, $r);
     }
 
     public function test_result_can_have_value()

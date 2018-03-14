@@ -8,7 +8,9 @@ class ReportTest extends \PHPUnit\Framework\TestCase
     public function test_that_report_can_be_created()
     {
         $r = new Result;
-        new Report('foo', $r, []);
+        $rep = new Report('foo', $r, []);
+
+        $this->assertInstanceOf(Report::class, $rep);
     }
 
     public function test_that_report_can_hold_experiment_name()

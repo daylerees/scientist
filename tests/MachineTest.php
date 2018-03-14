@@ -7,17 +7,23 @@ class MachineTest extends \PHPUnit\Framework\TestCase
 {
     public function test_that_machine_can_be_created()
     {
-        new Machine(function () {});
+        $m = new Machine(function () {});
+            
+        $this->assertInstanceOf(Machine::class, $m);
     }
 
     public function test_that_machine_can_receive_parameters()
     {
-        new Machine(function () {}, [1, 2, 3]);
+        $m = new Machine(function () {}, [1, 2, 3]);
+
+        $this->assertInstanceOf(Machine::class, $m);
     }
 
     public function test_that_machine_can_receive_mutable_state()
     {
-        new Machine(function () {}, [1, 2, 3], true);
+        $m = new Machine(function () {}, [1, 2, 3], true);
+
+        $this->assertInstanceOf(Machine::class, $m);
     }
 
     public function test_that_machine_can_produce_a_result()
@@ -47,7 +53,7 @@ class MachineTest extends \PHPUnit\Framework\TestCase
     {
         $m = new Machine(function () { throw new Exception('foo'); });
 
-        $this->setExpectedException(Exception::class);
+        $this->expectException(Exception::class);
 
         $m->execute();
     }

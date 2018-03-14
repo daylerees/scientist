@@ -52,7 +52,7 @@ class LaboratoryTest extends \PHPUnit\Framework\TestCase
 
     public function test_that_exceptions_are_thrown_within_control()
     {
-        $this->setExpectedException(Exception::class);
+        $this->expectException(Exception::class);
 
         $v = (new Laboratory)
             ->experiment('test experiment')
