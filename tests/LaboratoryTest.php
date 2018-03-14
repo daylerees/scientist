@@ -3,7 +3,7 @@
 use Scientist\Report;
 use Scientist\Laboratory;
 
-class LaboratoryTest extends PHPUnit_Framework_TestCase
+class LaboratoryTest extends \PHPUnit\Framework\TestCase
 {
     public function test_laboratory_can_be_created()
     {
@@ -52,7 +52,7 @@ class LaboratoryTest extends PHPUnit_Framework_TestCase
 
     public function test_that_exceptions_are_thrown_within_control()
     {
-        $this->setExpectedException(Exception::class);
+        $this->expectException(Exception::class);
 
         $v = (new Laboratory)
             ->experiment('test experiment')

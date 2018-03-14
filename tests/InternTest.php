@@ -5,7 +5,7 @@ use Scientist\Report;
 use Scientist\Experiment;
 use Scientist\Laboratory;
 
-class InternTest extends PHPUnit_Framework_TestCase
+class InternTest extends \PHPUnit\Framework\TestCase
 {
     public function test_that_intern_can_be_created()
     {

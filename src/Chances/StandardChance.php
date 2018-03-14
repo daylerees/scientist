@@ -1,27 +1,9 @@
 <?php
 namespace Scientist\Chances;
 
-use RandomLib\Factory;
-use RandomLib\Generator;
-
 class StandardChance implements Chance
 {
-    private $generator;
-
     private $percentage = 100;
-
-    /**
-     * StandardChance constructor.
-     * @param Generator|null $generator
-     */
-    public function __construct(Generator $generator = null)
-    {
-        if ($generator === null) {
-            $factory = new Factory;
-            $generator = $factory->getLowStrengthGenerator();
-        }
-        $this->generator = $generator;
-    }
 
     /**
      * Determine whether or not the experiment should run
@@ -32,8 +14,8 @@ class StandardChance implements Chance
             return false;
         }
 
-        $random = $this->generator
-            ->generateInt(0, 100);
+        $random = random_int(0, 100);
+
         return $random <= $this->percentage;
     }
 
@@ -52,6 +34,7 @@ class StandardChance implements Chance
     public function setPercentage($percentage)
     {
         $this->percentage = $percentage;
+        
         return $this;
     }
 }

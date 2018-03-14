@@ -4,7 +4,7 @@ use Scientist\Experiment;
 use Scientist\Laboratory;
 use Scientist\Matchers\StandardMatcher;
 
-class ExperimentTest extends PHPUnit_Framework_TestCase
+class ExperimentTest extends \PHPUnit\Framework\TestCase
 {
     public function test_that_a_new_experiment_can_be_created()
     {
@@ -63,7 +63,7 @@ class ExperimentTest extends PHPUnit_Framework_TestCase
 
     public function test_that_a_chance_variable_can_be_set()
     {
-        $chance = $this->getMock('\Scientist\Chances\Chance');
+        $chance = $this->createMock('\Scientist\Chances\Chance');
         $e = new Experiment('test experiment', new Laboratory);
         $e->chance($chance);
         $this->assertEquals($chance, $e->getChance());

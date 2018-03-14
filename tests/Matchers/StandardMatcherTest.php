@@ -2,7 +2,7 @@
 
 use Scientist\Matchers\StandardMatcher;
 
-class StandardMatcherTest extends PHPUnit_Framework_TestCase
+class StandardMatcherTest extends \PHPUnit\Framework\TestCase
 {
     public function test_that_standard_matcher_can_be_created()
     {

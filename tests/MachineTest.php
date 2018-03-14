@@ -3,21 +3,27 @@
 use Scientist\Result;
 use Scientist\Machine;
 
-class MachineTest extends PHPUnit_Framework_TestCase
+class MachineTest extends \PHPUnit\Framework\TestCase
 {
     public function test_that_machine_can_be_created()
     {
-        new Machine(function () {});
+        $m = new Machine(function () {});
+            
+        $this->assertInstanceOf(Machine::class, $m);
     }
 
     public function test_that_machine_can_receive_parameters()
     {
-        new Machine(function () {}, [1, 2, 3]);
+        $m = new Machine(function () {}, [1, 2, 3]);
+
+        $this->assertInstanceOf(Machine::class, $m);
     }
 
     public function test_that_machine_can_receive_mutable_state()
     {
-        new Machine(function () {}, [1, 2, 3], true);
+        $m = new Machine(function () {}, [1, 2, 3], true);
+
+        $this->assertInstanceOf(Machine::class, $m);
     }
 
     public function test_that_machine_can_produce_a_result()
@@ -47,14 +53,25 @@ class MachineTest extends PHPUnit_Framework_TestCase
     {
         $m = new Machine(function () { throw new Exception('foo'); });
 
-        $this->setExpectedException(Exception::class);
+        $this->expectException(Exception::class);
 
         $m->execute();
     }
 
-    public function test_that_machine_can_mute_exceptions_from_callback()
+    public static function getErrorData()
     {
-        $m = new Machine(function () { throw new Exception('foo'); }, [], true);
+        return [
+            [new Exception()],
+            [new Error()],
+        ];
+    }
+
+    /**
+     * @dataProvider getErrorData
+     */
+    public function test_that_machine_can_mute_exceptions_from_callback($exception)
+    {
+        $m = new Machine(function () use ($exception) { throw $exception; }, [], true);
 
         $this->assertEquals(null, $m->execute()->getValue());
     }
