@@ -52,9 +52,20 @@ class MachineTest extends PHPUnit_Framework_TestCase
         $m->execute();
     }
 
-    public function test_that_machine_can_mute_exceptions_from_callback()
+    public static function getErrorData()
     {
-        $m = new Machine(function () { throw new Exception('foo'); }, [], true);
+        return [
+            [new Exception()],
+            [new Error()],
+        ];
+    }
+
+    /**
+     * @dataProvider getErrorData
+     */
+    public function test_that_machine_can_mute_exceptions_from_callback($exception)
+    {
+        $m = new Machine(function () use ($exception) { throw $exception; }, [], true);
 
         $this->assertEquals(null, $m->execute()->getValue());
     }
