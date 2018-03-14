@@ -2,7 +2,7 @@
 
 namespace Scientist;
 
-use Exception;
+use Throwable;
 
 /**
  * Class Executor
@@ -102,7 +102,7 @@ class Machine
     {
         try {
             $this->result->setValue(call_user_func_array($this->callback, $this->params));
-        } catch (Exception $exception) {
+        } catch (Throwable $exception) {
             $this->result->setException($exception);
             $this->result->setValue(null);
         }
