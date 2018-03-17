@@ -32,6 +32,13 @@ class Experiment
     protected $control;
 
     /**
+     * Context for the control.
+     *
+     * @var mixed
+     */
+    protected $controlContext;
+
+    /**
      * Trial callbacks.
      *
      * @var array
@@ -104,12 +111,14 @@ class Experiment
      * Register a control callback.
      *
      * @param callable $callback
+     * @param mixed $context
      *
      * @return $this
      */
-    public function control(callable $callback)
+    public function control(callable $callback, $context = null)
     {
         $this->control = $callback;
+        $this->controlContext = $context;
 
         return $this;
     }
@@ -124,6 +133,11 @@ class Experiment
         return $this->control;
     }
 
+    public function getControlContext()
+    {
+        return $this->controlContext;
+    }
+
     /**
      * Register a trial callback.
      *
@@ -132,9 +146,9 @@ class Experiment
      *
      * @return $this
      */
-    public function trial($name, callable $callback)
+    public function trial($name, callable $callback, $context = null)
     {
-        $this->trials[$name] = $callback;
+        $this->trials[$name] = new Trial($name, $callback, $context);
 
         return $this;
     }
@@ -148,7 +162,7 @@ class Experiment
      */
     public function getTrial($name)
     {
-        return $this->trials[$name];
+        return $this->trials[$name]->getCallback();
     }
 
     /**

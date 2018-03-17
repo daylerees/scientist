@@ -46,12 +46,12 @@ class Machine
      * @param array    $params
      * @param boolean  $muted
      */
-    public function __construct(callable $callback, array $params = [], $muted = false)
+    public function __construct(callable $callback, array $params = [], $muted = false, $context = null)
     {
         $this->callback = $callback;
         $this->params   = $params;
         $this->muted    = $muted;
-        $this->result   = new Result;
+        $this->result   = new Result($context);
     }
 
     /**

@@ -8,7 +8,7 @@ class MachineTest extends \PHPUnit\Framework\TestCase
     public function test_that_machine_can_be_created()
     {
         $m = new Machine(function () {});
-            
+
         $this->assertInstanceOf(Machine::class, $m);
     }
 
@@ -38,6 +38,15 @@ class MachineTest extends \PHPUnit\Framework\TestCase
         $m = new Machine(function () { return 'foo'; });
 
         $this->assertEquals('foo', $m->execute()->getValue());
+    }
+
+    public function test_that_machine_sets_context_result()
+    {
+        $context = ['foo' => 'bar'];
+
+        $m = new Machine(function () { return 'foo'; }, [], true, $context);
+
+        $this->assertSame($context, $m->execute()->getContext());
     }
 
     public function test_that_machine_executes_callback_with_parameters()

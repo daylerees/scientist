@@ -28,6 +28,25 @@ class ExperimentTest extends \PHPUnit\Framework\TestCase
         $this->assertSame($control, $e->getControl());
     }
 
+    public function test_that_control_context_defaults_to_null()
+    {
+        $e = new Experiment('test experiment', new Laboratory);
+        $e->control(function () {
+            return true;
+        });
+        $this->assertNull($e->getControlContext());
+    }
+
+    public function test_that_control_context_can_be_defined()
+    {
+        $context = ['foo' => 'bar'];
+        $e = new Experiment('test experiment', new Laboratory);
+        $e->control(function () {
+            return true;
+        }, $context);
+        $this->assertSame($context, $e->getControlContext());
+    }
+
     public function test_that_a_trial_callback_can_be_defined()
     {
         $e = new Experiment('test experiment', new Laboratory);
@@ -54,11 +73,13 @@ class ExperimentTest extends \PHPUnit\Framework\TestCase
         $e->trial('second', $second);
         $e->trial('third', $third);
         $expected = [
-            'first'  => $first,
-            'second' => $second,
-            'third'  => $third
+            'first',
+            'second',
+            'third',
         ];
-        $this->assertSame($expected, $e->getTrials());
+        $trials = $e->getTrials();
+        $this->assertSame($expected, \array_keys($trials));
+        $this->assertContainsOnlyInstancesOf(\Scientist\Trial::class, $trials);
     }
 
     public function test_that_a_chance_variable_can_be_set()
