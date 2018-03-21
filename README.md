@@ -6,7 +6,6 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/daylerees/scientist/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/daylerees/scientist/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/daylerees/scientist/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/daylerees/scientist/?branch=master)
 [![Code Climate](https://codeclimate.com/github/daylerees/scientist/badges/gpa.svg)](https://codeclimate.com/github/daylerees/scientist)
-[![HHVM Tested](https://img.shields.io/hhvm/daylerees/scientist.svg)](https://travis-ci.org/daylerees/scientist)
 
 [![Packagist Version](https://img.shields.io/packagist/v/daylerees/scientist.svg)](https://packagist.org/packages/daylerees/scientist)
 [![Packagist](https://img.shields.io/packagist/dt/daylerees/scientist.svg)](https://packagist.org/packages/daylerees/scientist)
