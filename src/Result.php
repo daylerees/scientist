@@ -1,5 +1,4 @@
 <?php
-
 namespace Scientist;
 
 use Exception;
@@ -62,6 +61,16 @@ class Result
      * @var boolean
      */
     protected $match = false;
+
+    /**
+     * @var mixed
+     */
+    protected $context;
+
+    public function __construct($context = null)
+    {
+        $this->context = $context;
+    }
 
     /**
      * Get the callback result value.
@@ -225,6 +234,11 @@ class Result
         $this->exception = $exception;
 
         return $this;
+    }
+
+    public function getContext()
+    {
+        return $this->context;
     }
 
     /**

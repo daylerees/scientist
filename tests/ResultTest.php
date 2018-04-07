@@ -7,7 +7,7 @@ class ResultTest extends \PHPUnit\Framework\TestCase
     public function test_result_can_be_created()
     {
         $r = new Result;
-        
+
         $this->assertInstanceOf(Result::class, $r);
     }
 
@@ -58,6 +58,14 @@ class ResultTest extends \PHPUnit\Framework\TestCase
         $r = new Result;
         $r->setMatch(true);
         $this->assertTrue(true, $r->isMatch());
+    }
+
+    public function test_can_have_context()
+    {
+        $context = ['foo' => 'bar'];
+
+        $r = new Result($context);
+        $this->assertSame($context, $r->getContext());
     }
 
     public function test_result_can_have_total_execution_time()

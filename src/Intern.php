@@ -40,7 +40,12 @@ class Intern
      */
     protected function runControl(Experiment $experiment)
     {
-        return (new Machine($experiment->getControl(), $experiment->getParams()))->execute();
+        return (new Machine(
+            $experiment->getControl(),
+            $experiment->getParams(),
+            false,
+            $experiment->getControlContext()
+        ))->execute();
     }
 
     /**
@@ -56,9 +61,10 @@ class Intern
 
         foreach ($experiment->getTrials() as $name => $trial) {
             $executions[$name] = (new Machine(
-                $trial,
+                $trial->getCallback(),
                 $experiment->getParams(),
-                true
+                true,
+                $trial->getContext()
             ))->execute();
         }
 
