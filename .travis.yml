@@ -8,5 +8,5 @@ matrix:
   allow_failures:
     - php: nightly
 install:
-  - composer install --dev
+  - composer install
 script: vendor/bin/phing
