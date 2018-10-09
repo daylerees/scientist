@@ -57,6 +57,18 @@ class ExperimentTest extends \PHPUnit\Framework\TestCase
         $this->assertSame($trial, $e->getTrial('trial'));
     }
 
+    public function test_that_a_trial_callback_with_different_arguments_can_be_defined()
+    {
+        $e = new Experiment('test experiment', new Laboratory);
+        $trialArgs = ['input' => 'some_string'];
+        $trial = function ($input) {
+            return $input;
+        };
+        $e->trial('my_trial', $trial, null, $trialArgs);
+        $this->assertSame($trial, $e->getTrial('my_trial'));
+        $this->assertSame($e->getTrials()['my_trial']->getArguments(), $trialArgs);
+    }
+
     public function test_that_multiple_trial_callbacks_can_be_defined()
     {
         $e = new Experiment('test experiment', new Laboratory);
