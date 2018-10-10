@@ -40,9 +40,15 @@ class Intern
      */
     protected function runControl(Experiment $experiment)
     {
+        $argParams = $experiment->getParams();
+
+        if (!empty($experiment->getControlArguments())) {
+            $argParams = $experiment->getControlArguments();
+        }
+
         return (new Machine(
             $experiment->getControl(),
-            $experiment->getParams(),
+            $argParams,
             false,
             $experiment->getControlContext()
         ))->execute();
@@ -60,9 +66,15 @@ class Intern
         $executions = [];
 
         foreach ($experiment->getTrials() as $name => $trial) {
+            $trialArgs = $experiment->getParams();
+
+            if (!empty($trial->getArguments())) {
+                $trialArgs = $trial->getArguments();
+            }
+
             $executions[$name] = (new Machine(
                 $trial->getCallback(),
-                $experiment->getParams(),
+                $trialArgs,
                 true,
                 $trial->getContext()
             ))->execute();
