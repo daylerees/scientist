@@ -12,11 +12,10 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/tests',
     ]);
 
-    // register a single rule
-    $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
-
-    // define sets of rules
-    //    $rectorConfig->sets([
-    //        LevelSetList::UP_TO_PHP_73
-    //    ]);
+        $rectorConfig->sets([
+            \Rector\PHPUnit\Set\PHPUnitSetList::PHPUNIT_70,
+            \Rector\PHPUnit\Set\PHPUnitSetList::PHPUNIT_80,
+            \Rector\PHPUnit\Set\PHPUnitSetList::PHPUNIT_90,
+            \Rector\PHPUnit\Set\PHPUnitSetList::PHPUNIT_91,
+        ]);
 };

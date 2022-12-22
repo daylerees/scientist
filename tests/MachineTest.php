@@ -93,8 +93,8 @@ class MachineTest extends \PHPUnit\Framework\TestCase
         $r = $m->execute();
         $e = microtime(true) + 60;
 
-        $this->assertInternalType('float', $r->getStartTime());
-        $this->assertInternalType('float', $r->getEndTime());
+        $this->assertIsFloat($r->getStartTime());
+        $this->assertIsFloat($r->getEndTime());
         $this->assertGreaterThan($s, $r->getStartTime());
         $this->assertGreaterThan($s, $r->getEndTime());
         $this->assertLessThan($e, $r->getStartTime());
@@ -107,7 +107,7 @@ class MachineTest extends \PHPUnit\Framework\TestCase
 
         $r = $m->execute();
 
-        $this->assertInternalType('integer', $r->getStartMemory());
-        $this->assertInternalType('integer', $r->getEndMemory());
+        $this->assertIsInt($r->getStartMemory());
+        $this->assertIsInt($r->getEndMemory());
     }
 }
