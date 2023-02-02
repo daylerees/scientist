@@ -8,7 +8,7 @@ class StandardChanceTest extends \PHPUnit\Framework\TestCase
      */
     private $chance;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->chance = new StandardChance();
     }
