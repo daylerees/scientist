@@ -39,7 +39,7 @@ $experiment = (new Scientist\Laboratory)
 $value = $experiment->run();
 ```
 
-A [more detailed description](https://scientist.readme.io/docs/introduction), and [full documentation](https://scientist.readme.io/) is available.
+A [more detailed description](https://github.com/daylerees/scientist/wiki#case-study), and [full documentation](https://github.com/daylerees/scientist/wiki) is available.
 
 ## User Contributed Resources
 
