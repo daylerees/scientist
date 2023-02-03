@@ -7,29 +7,43 @@ on:
     branches: [ "master" ]
 
 jobs:
-  unit_tests:
+  run:
     runs-on: ubuntu-latest
-
     strategy:
       fail-fast: false
       matrix:
-        php:
-          - 8.0
-          - 8.1
-          - 8.2
+        php-versions: ['8.0', '8.1', '8.2', '8.3']
 
-    name: PHP ${{ matrix.php }} tests
-
+    name: PHP ${{ matrix.php-versions }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      # see https://github.com/shivammathur/setup-php
-      - uses: shivammathur/setup-php@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: ${{ matrix.php-versions }}
           coverage: none
 
-      # composer install cache - https://github.com/ramsey/composer-install
-      - uses: "ramsey/composer-install@v2"
+      - name: Set PHP version environment variable
+        run: php -r 'echo "php_version=" . phpversion();' >> $GITHUB_ENV
 
-      - run: vendor/bin/phpunit
+      - name: Setup problem matchers for PHPUnit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-php-${{ env.php_version }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-php-${{ env.php_version }}-composer-
+
+      - name: Install dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Test with phpunit
+        run: vendor/bin/phpunit
