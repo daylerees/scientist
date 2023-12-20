@@ -80,7 +80,8 @@ class Machine
     protected function executeCallback(): void
     {
         if ($this->muted) {
-            return $this->executeMutedCallback();
+            $this->executeMutedCallback();
+            return;
         }
 
         $this->result->setValue(call_user_func_array($this->callback, $this->params));

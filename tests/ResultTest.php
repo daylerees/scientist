@@ -58,7 +58,7 @@ class ResultTest extends \PHPUnit\Framework\TestCase
     {
         $r = new Result;
         $r->setMatch(true);
-        $this->assertTrue(true, $r->isMatch());
+        $this->assertTrue($r->isMatch());
     }
 
     public function test_can_have_context()
