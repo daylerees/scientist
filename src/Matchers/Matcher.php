@@ -16,8 +16,6 @@ interface Matcher
      *
      * @param mixed $control
      * @param mixed $trial
-     *
-     * @return boolean
      */
-    public function match($control, $trial);
+    public function match($control, $trial): bool;
 }

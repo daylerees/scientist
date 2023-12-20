@@ -24,11 +24,9 @@ class Laboratory
     /**
      * Register a collection of journals.
      *
-     * @param array $journals
-     *
-     * @return $this
+     * @param Journal[] $journals
      */
-    public function setJournals(array $journals = [])
+    public function setJournals(array $journals = []): self
     {
         $this->journals = [];
         foreach ($journals as $journal) {
@@ -40,12 +38,8 @@ class Laboratory
 
     /**
      * Register a new journal.
-     *
-     * @param \Scientist\Journals\Journal $journal
-     *
-     * @return $this
      */
-    public function addJournal(Journal $journal)
+    public function addJournal(Journal $journal): self
     {
         $this->journals[] = $journal;
 
@@ -55,9 +49,9 @@ class Laboratory
     /**
      * Retrieve registers journals.
      *
-     * @return array
+     * @return Journal[]
      */
-    public function getJournals()
+    public function getJournals(): array
     {
         return $this->journals;
     }
@@ -65,11 +59,9 @@ class Laboratory
     /**
      * Start a new experiment.
      *
-     * @param string $name
-     *
      * @return mixed
      */
-    public function experiment($name)
+    public function experiment(string $name)
     {
         return (new Experiment($name, $this));
     }
@@ -96,12 +88,8 @@ class Laboratory
 
     /**
      * Run an experiment and return the result.
-     *
-     * @param \Scientist\Experiment $experiment
-     *
-     * @return \Scientist\Report
      */
-    public function getReport(Experiment $experiment)
+    public function getReport(Experiment $experiment): Report
     {
         $report = (new Intern)->run($experiment);
         $this->reportToJournals($experiment, $report);
@@ -111,13 +99,8 @@ class Laboratory
 
     /**
      * Report experiment result to registered journals.
-     *
-     * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Report     $report
-     *
-     * @return void
      */
-    protected function reportToJournals(Experiment $experiment, Report $report)
+    protected function reportToJournals(Experiment $experiment, Report $report): void
     {
         foreach ($this->journals as $journal) {
             $journal->report($experiment, $report);

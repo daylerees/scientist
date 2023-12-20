@@ -42,11 +42,8 @@ class Machine
     /**
      * Inject machine dependencies.
      *
-     * @param callable $callback
-     * @param array    $params
-     * @param boolean  $muted
      */
-    public function __construct(callable $callback, array $params = [], $muted = false, $context = null)
+    public function __construct(callable $callback, array $params = [], bool $muted = false, $context = null)
     {
         $this->callback = $callback;
         $this->params   = $params;
@@ -56,10 +53,8 @@ class Machine
 
     /**
      * Execute the callback and retrieve a result.
-     *
-     * @return \Scientist\Result
      */
-    public function execute()
+    public function execute(): Result
     {
         $this->setStartValues();
         $this->executeCallback();
@@ -70,10 +65,8 @@ class Machine
 
     /**
      * Set values before callback is executed.
-     *
-     * @return void
      */
-    protected function setStartValues()
+    protected function setStartValues(): void
     {
         $this->result->setStartTime(microtime(true));
         $this->result->setStartMemory(memory_get_usage());
@@ -81,10 +74,8 @@ class Machine
 
     /**
      * Execute the callback with parameters.
-     *
-     * @return void
      */
-    protected function executeCallback()
+    protected function executeCallback(): void
     {
         if ($this->muted) {
             return $this->executeMutedCallback();
@@ -95,10 +86,8 @@ class Machine
 
     /**
      * Execute the callback, but swallow exceptions.
-     *
-     * @return void
      */
-    protected function executeMutedCallback()
+    protected function executeMutedCallback(): void
     {
         try {
             $this->result->setValue(call_user_func_array($this->callback, $this->params));
@@ -110,10 +99,8 @@ class Machine
 
     /**
      * Set values after the callback has executed.
-     *
-     * @return void
      */
-    protected function setEndValues()
+    protected function setEndValues(): void
     {
         $this->result->setEndTime(microtime(true));
         $this->result->setEndMemory(memory_get_usage());

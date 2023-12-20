@@ -14,10 +14,8 @@ class StandardMatcher implements Matcher
      *
      * @param mixed $control
      * @param mixed $trial
-     *
-     * @return boolean
      */
-    public function match($control, $trial)
+    public function match($control, $trial): bool
     {
         return $control === $trial;
     }

@@ -42,20 +42,16 @@ class StandardJournal implements Journal
 
     /**
      * Get the experiment.
-     *
-     * @return \Scientist\Experiment
      */
-    public function getExperiment()
+    public function getExperiment(): Experiment
     {
         return $this->experiment;
     }
 
     /**
      * Get the experiment report.
-     *
-     * @return \Scientist\Report
      */
-    public function getReport()
+    public function getReport(): Report
     {
         return $this->report;
     }

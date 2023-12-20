@@ -27,7 +27,7 @@ class ClosureMatcher implements Matcher
     /**
      * @inheritDoc
      */
-    public function match($control, $trial)
+    public function match($control, $trial): bool
     {
         return call_user_func($this->closure, $control, $trial);
     }
