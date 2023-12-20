@@ -15,22 +15,19 @@ class StandardJournal implements Journal
     /**
      * The executed experiment.
      *
-     * @var \Scientist\Experiment
+     * @var Experiment
      */
     protected $experiment;
 
     /**
      * The experiment report.
      *
-     * @var \Scientist\Report
+     * @var Report
      */
     protected $report;
 
     /**
      * Dispatch a report to storage.
-     *
-     * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Report     $report
      */
     public function report(Experiment $experiment, Report $report): void
     {

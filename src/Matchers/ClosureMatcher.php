@@ -17,7 +17,6 @@ class ClosureMatcher implements Matcher
 
     /**
      * Create a new matcher instance based on a closure.
-     * @param \Closure $closure The closure to use
      */
     public function __construct(\Closure $closure)
     {

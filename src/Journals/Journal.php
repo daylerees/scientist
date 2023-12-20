@@ -18,9 +18,6 @@ interface Journal
     /**
      * Dispatch a report to storage.
      *
-     * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Report     $report
-     *
      * @return mixed
      */
     public function report(Experiment $experiment, Report $report);

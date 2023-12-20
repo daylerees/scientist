@@ -69,8 +69,6 @@ class Laboratory
     /**
      * Run an experiment.
      *
-     * @param \Scientist\Experiment $experiment
-     *
      * @return mixed
      */
     public function runExperiment(Experiment $experiment)
