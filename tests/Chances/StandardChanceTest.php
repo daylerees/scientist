@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Scientist\Chances;
 
 class StandardChanceTest extends \PHPUnit\Framework\TestCase
