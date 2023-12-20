@@ -3,6 +3,9 @@ namespace Scientist\Chances;
 
 class StandardChance implements Chance
 {
+    /**
+     * @var int
+     */
     private $percentage = 100;
 
     /**

@@ -28,7 +28,7 @@ class Machine
     /**
      * Should exceptions be muted.
      *
-     * @var boolean
+     * @var bool
      */
     protected $muted = false;
 
@@ -42,6 +42,7 @@ class Machine
     /**
      * Inject machine dependencies.
      *
+     * @param mixed $context
      */
     public function __construct(callable $callback, array $params = [], bool $muted = false, $context = null)
     {
@@ -91,7 +92,7 @@ class Machine
     {
         try {
             $this->result->setValue(call_user_func_array($this->callback, $this->params));
-        } catch (Throwable $exception) {
+        } catch (\Throwable $exception) {
             $this->result->setException($exception);
             $this->result->setValue(null);
         }

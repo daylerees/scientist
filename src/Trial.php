@@ -19,6 +19,9 @@ class Trial
      */
     protected $context;
 
+    /**
+     * @param mixed $context
+     */
     public function __construct(string $name, callable $callback, $context)
     {
         $this->name = $name;
@@ -36,6 +39,9 @@ class Trial
         return $this->callback;
     }
 
+    /**
+     * @return mixed
+     */
     public function getContext()
     {
         return $this->context;

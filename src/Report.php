@@ -29,7 +29,7 @@ class Report
     /**
      * The trial results.
      *
-     * @var array
+     * @var Result[]
      */
     protected $trials = [];
 

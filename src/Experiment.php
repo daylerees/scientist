@@ -42,7 +42,7 @@ class Experiment
     /**
      * Trial callbacks.
      *
-     * @var array
+     * @var callable[]
      */
     protected $trials = [];
 
@@ -122,6 +122,9 @@ class Experiment
         return $this->control;
     }
 
+    /**
+     * @return mixed
+     */
     public function getControlContext()
     {
         return $this->controlContext;
@@ -129,6 +132,8 @@ class Experiment
 
     /**
      * Register a trial callback.
+     *
+     * @param mixed $context
      */
     public function trial(string $name, callable $callback, $context = null): self
     {
@@ -147,6 +152,8 @@ class Experiment
 
     /**
      * Fetch an array of trial callbacks.
+     *
+     * @return callable[]
      */
     public function getTrials(): array
     {

@@ -58,7 +58,7 @@ class Result
     /**
      * Does the callback result value match the control.
      *
-     * @var boolean
+     * @var bool
      */
     protected $match = false;
 
@@ -67,6 +67,9 @@ class Result
      */
     protected $context;
 
+    /**
+     * @param ?mixed $context
+     */
     public function __construct($context = null)
     {
         $this->context = $context;
@@ -200,6 +203,9 @@ class Result
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getContext()
     {
         return $this->context;
