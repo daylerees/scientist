@@ -31,10 +31,8 @@ class StandardJournal implements Journal
      *
      * @param \Scientist\Experiment $experiment
      * @param \Scientist\Report     $report
-     *
-     * @return mixed
      */
-    public function report(Experiment $experiment, Report $report)
+    public function report(Experiment $experiment, Report $report): void
     {
         $this->experiment = $experiment;
         $this->report     = $report;

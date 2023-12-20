@@ -139,10 +139,8 @@ class Experiment
 
     /**
      * Fetch a trial callback by name.
-     * 
-     * @return mixed
      */
-    public function getTrial(string $name)
+    public function getTrial(string $name): callable
     {
         return $this->trials[$name]->getCallback();
     }

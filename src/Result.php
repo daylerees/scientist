@@ -185,7 +185,7 @@ class Result
     /**
      * Get the exception thrown by the callback.
      */
-    public function getException(): ?Exception
+    public function getException(): ?\Throwable
     {
         return $this->exception;
     }
@@ -193,7 +193,7 @@ class Result
     /**
      * Set the exception thrown by the callback.
      */
-    public function setException(?Exception $exception): self
+    public function setException(?\Throwable $exception): self
     {
         $this->exception = $exception;
 
