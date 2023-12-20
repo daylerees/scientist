@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace Scientist;
 
+use Scientist\Report;
 use Scientist\Chances\Chance;
 use Scientist\Chances\StandardChance;
 use Scientist\Matchers\Matcher;
@@ -41,7 +43,7 @@ class Experiment
     /**
      * Trial callbacks.
      *
-     * @var array
+     * @var callable[]
      */
     protected $trials = [];
 
@@ -75,11 +77,8 @@ class Experiment
 
     /**
      * Create a new experiment.
-     *
-     * @param string                $name
-     * @param \Scientist\Laboratory $laboratory
      */
-    public function __construct($name, Laboratory $laboratory)
+    public function __construct(string $name, Laboratory $laboratory)
     {
         $this->name = $name;
         $this->laboratory = $laboratory;
@@ -89,20 +88,16 @@ class Experiment
 
     /**
      * Fetch the experiment name.
-     *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
      * Retrieve the laboratory instance.
-     *
-     * @return \Scientist\Laboratory|null
      */
-    public function getLaboratory()
+    public function getLaboratory(): ?Laboratory
     {
         return $this->laboratory;
     }
@@ -110,12 +105,9 @@ class Experiment
     /**
      * Register a control callback.
      *
-     * @param callable $callback
      * @param mixed $context
-     *
-     * @return $this
      */
-    public function control(callable $callback, $context = null)
+    public function control(callable $callback, $context = null): self
     {
         $this->control = $callback;
         $this->controlContext = $context;
@@ -125,14 +117,15 @@ class Experiment
 
     /**
      * Fetch the control callback.
-     *
-     * @return callable
      */
-    public function getControl()
+    public function getControl(): callable
     {
         return $this->control;
     }
 
+    /**
+     * @return mixed
+     */
     public function getControlContext()
     {
         return $this->controlContext;
@@ -141,12 +134,9 @@ class Experiment
     /**
      * Register a trial callback.
      *
-     * @param string   $name
-     * @param callable $callback
-     *
-     * @return $this
+     * @param mixed $context
      */
-    public function trial($name, callable $callback, $context = null)
+    public function trial(string $name, callable $callback, $context = null): self
     {
         $this->trials[$name] = new Trial($name, $callback, $context);
 
@@ -155,12 +145,8 @@ class Experiment
 
     /**
      * Fetch a trial callback by name.
-     *
-     * @param string $name
-     *
-     * @return mixed
      */
-    public function getTrial($name)
+    public function getTrial(string $name): callable
     {
         return $this->trials[$name]->getCallback();
     }
@@ -168,21 +154,17 @@ class Experiment
     /**
      * Fetch an array of trial callbacks.
      *
-     * @return array
+     * @return callable[]
      */
-    public function getTrials()
+    public function getTrials(): array
     {
         return $this->trials;
     }
 
     /**
      * Set a matcher for this experiment.
-     *
-     * @param \Scientist\Matchers\Matcher $matcher
-     *
-     * @return $this
      */
-    public function matcher(Matcher $matcher)
+    public function matcher(Matcher $matcher): self
     {
         $this->matcher = $matcher;
 
@@ -191,22 +173,16 @@ class Experiment
 
     /**
      * Get the matcher for this experiment.
-     *
-     * @return \Scientist\Matchers\Matcher
      */
-    public function getMatcher()
+    public function getMatcher(): Matcher
     {
         return $this->matcher;
     }
 
     /**
      * Set the execution chance.
-     *
-     * @param Chances\Chance $chance
-     *
-     * @return $this
      */
-    public function chance(Chance $chance)
+    public function chance(Chance $chance): self
     {
         $this->chance = $chance;
 
@@ -215,20 +191,16 @@ class Experiment
 
     /**
      * Get the execution chance.
-     *
-     * @return Chances\Chance
      */
-    public function getChance()
+    public function getChance(): Chance
     {
         return $this->chance;
     }
 
     /**
      * Determine whether an experiment should run based on chance.
-     *
-     * @return boolean
      */
-    public function shouldRun()
+    public function shouldRun(): bool
     {
         return $this->chance
             ->shouldRun();
@@ -236,10 +208,8 @@ class Experiment
 
     /**
      * Get the experiment parameters.
-     *
-     * @return array
      */
-    public function getParams()
+    public function getParams(): array
     {
         return $this->params;
     }
@@ -258,10 +228,8 @@ class Experiment
 
     /**
      * Execute the experiment and return a report.
-     *
-     * @return \Scientist\Report
      */
-    public function report()
+    public function report(): Report
     {
         $this->params = func_get_args();
 

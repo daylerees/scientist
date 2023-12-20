@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Scientist;
 
@@ -19,23 +20,29 @@ class Trial
      */
     protected $context;
 
-    public function __construct($name, callable $callback, $context)
+    /**
+     * @param mixed $context
+     */
+    public function __construct(string $name, callable $callback, $context)
     {
         $this->name = $name;
         $this->callback = $callback;
         $this->context = $context;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getCallback()
+    public function getCallback(): callable
     {
         return $this->callback;
     }
 
+    /**
+     * @return mixed
+     */
     public function getContext()
     {
         return $this->context;

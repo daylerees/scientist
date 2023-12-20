@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Scientist\Report;
 use Scientist\Laboratory;
@@ -39,12 +40,12 @@ class LaboratoryTest extends \PHPUnit\Framework\TestCase
         $this->assertIsFloat($r->getTrial('trial')->getStartTime());
         $this->assertIsFloat($r->getTrial('trial')->getEndTime());
         $this->assertIsFloat($r->getTrial('trial')->getTime());
-        $this->assertIsInt($r->getControl()->getStartMemory());
-        $this->assertIsInt($r->getControl()->getEndMemory());
-        $this->assertIsInt($r->getControl()->getMemory());
-        $this->assertIsInt($r->getTrial('trial')->getStartMemory());
-        $this->assertIsInt($r->getTrial('trial')->getEndMemory());
-        $this->assertIsInt($r->getTrial('trial')->getMemory());
+        $this->assertIsFloat($r->getControl()->getStartMemory());
+        $this->assertIsFloat($r->getControl()->getEndMemory());
+        $this->assertIsFloat($r->getControl()->getMemory());
+        $this->assertIsFloat($r->getTrial('trial')->getStartMemory());
+        $this->assertIsFloat($r->getTrial('trial')->getEndMemory());
+        $this->assertIsFloat($r->getTrial('trial')->getMemory());
         $this->assertNull($r->getControl()->getException());
         $this->assertNull($r->getTrial('trial')->getException());
         $this->assertFalse($r->getTrial('trial')->isMatch());

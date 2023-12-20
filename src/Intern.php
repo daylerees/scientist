@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Scientist;
 
@@ -16,12 +17,8 @@ class Intern
 {
     /**
      * Run an experiment, and retrieve the result.
-     *
-     * @param \Scientist\Experiment $experiment
-     *
-     * @return \Scientist\Report
      */
-    public function run(Experiment $experiment)
+    public function run(Experiment $experiment): Report
     {
         $control = $this->runControl($experiment);
         $trials  = $this->runTrials($experiment);
@@ -33,12 +30,8 @@ class Intern
 
     /**
      * Run the control callback, and record its execution state.
-     *
-     * @param \Scientist\Experiment $experiment
-     *
-     * @return \Scientist\Result
      */
-    protected function runControl(Experiment $experiment)
+    protected function runControl(Experiment $experiment): Result
     {
         return (new Machine(
             $experiment->getControl(),
@@ -51,11 +44,9 @@ class Intern
     /**
      * Run trial callbacks and record their execution state.
      *
-     * @param \Scientist\Experiment $experiment
-     *
-     * @return \Scientist\Result[]
+     * @return Result[]
      */
-    protected function runTrials(Experiment $experiment)
+    protected function runTrials(Experiment $experiment): array
     {
         $executions = [];
 
@@ -74,11 +65,9 @@ class Intern
     /**
      * Determine whether trial results match the control.
      *
-     * @param \Scientist\Matchers\Matcher $matcher
-     * @param \Scientist\Result           $control
-     * @param \Scientist\Result[]         $trials
+     * @param Result[] $trials
      */
-    protected function determineMatches(Matcher $matcher, Result $control, array $trials = [])
+    protected function determineMatches(Matcher $matcher, Result $control, array $trials = []): void
     {
         foreach ($trials as $trial) {
             if ($matcher->match($control->getValue(), $trial->getValue())) {

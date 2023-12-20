@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Scientist\Matchers;
 
@@ -16,8 +17,6 @@ interface Matcher
      *
      * @param mixed $control
      * @param mixed $trial
-     *
-     * @return boolean
      */
-    public function match($control, $trial);
+    public function match($control, $trial): bool;
 }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Scientist;
 
@@ -29,18 +30,14 @@ class Report
     /**
      * The trial results.
      *
-     * @var array
+     * @var Result[]
      */
     protected $trials = [];
 
     /**
      * Create a new result instance.
-     *
-     * @param string            $name
-     * @param \Scientist\Result $control
-     * @param array             $trials
      */
-    public function __construct($name, Result $control, array $trials = [])
+    public function __construct(string $name, Result $control, array $trials = [])
     {
         $this->name    = $name;
         $this->control = $control;
@@ -49,32 +46,24 @@ class Report
 
     /**
      * Get the experiment name.
-     *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
      * Get the control result instance.
-     *
-     * @return \Scientist\Result
      */
-    public function getControl()
+    public function getControl(): Result
     {
         return $this->control;
     }
 
     /**
      * Get a trial result instance by name.
-     *
-     * @param string $name
-     *
-     * @return \Scientist\Result
      */
-    public function getTrial($name)
+    public function getTrial(string $name): Result
     {
         return $this->trials[$name];
     }
@@ -82,9 +71,9 @@ class Report
     /**
      * Get the trial result instances.
      *
-     * @return array
+     * @return Result[]
      */
-    public function getTrials()
+    public function getTrials(): array
     {
         return $this->trials;
     }

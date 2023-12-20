@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Scientist\Journals;
 
@@ -17,9 +18,6 @@ interface Journal
 {
     /**
      * Dispatch a report to storage.
-     *
-     * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Report     $report
      *
      * @return mixed
      */

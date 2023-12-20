@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Scientist;
 
 use Exception;
@@ -58,7 +60,7 @@ class Result
     /**
      * Does the callback result value match the control.
      *
-     * @var boolean
+     * @var bool
      */
     protected $match = false;
 
@@ -67,6 +69,9 @@ class Result
      */
     protected $context;
 
+    /**
+     * @param ?mixed $context
+     */
     public function __construct($context = null)
     {
         $this->context = $context;
@@ -86,10 +91,8 @@ class Result
      * Set the callback result value.
      *
      * @param mixed $value
-     *
-     * @return $this
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
         $this->value = $value;
 
@@ -98,22 +101,16 @@ class Result
 
     /**
      * Get the callback execution start time.
-     *
-     * @return float
      */
-    public function getStartTime()
+    public function getStartTime(): float
     {
         return $this->startTime;
     }
 
     /**
      * Set the callback execution start time.
-     *
-     * @param float $startTime
-     *
-     * @return $this
      */
-    public function setStartTime($startTime)
+    public function setStartTime(float $startTime): self
     {
         $this->startTime = $startTime;
 
@@ -122,22 +119,16 @@ class Result
 
     /**
      * Get the callback execution end time.
-     *
-     * @return float
      */
-    public function getEndTime()
+    public function getEndTime(): float
     {
         return $this->endTime;
     }
 
     /**
      * Set the callback execution end time.
-     *
-     * @param float $endTime
-     *
-     * @return $this
      */
-    public function setEndTime($endTime)
+    public function setEndTime(float $endTime): self
     {
         $this->endTime = $endTime;
 
@@ -146,32 +137,24 @@ class Result
 
     /**
      * Get the execution time of the callback.
-     *
-     * @return float
      */
-    public function getTime()
+    public function getTime(): float
     {
         return $this->endTime - $this->startTime;
     }
 
     /**
      * Get the callback execution starting memory usage.
-     *
-     * @return float
      */
-    public function getStartMemory()
+    public function getStartMemory(): float
     {
         return $this->startMemory;
     }
 
     /**
      * Set the callback execution starting memory usage.
-     *
-     * @param float $startMemory
-     *
-     * @return $this
      */
-    public function setStartMemory($startMemory)
+    public function setStartMemory(float $startMemory): self
     {
         $this->startMemory = $startMemory;
 
@@ -180,22 +163,16 @@ class Result
 
     /**
      * Get the callback execution ending memory usage.
-     *
-     * @return float
      */
-    public function getEndMemory()
+    public function getEndMemory(): float
     {
         return $this->endMemory;
     }
 
     /**
      * Set the callback execution ending memory usage.
-     *
-     * @param float $endMemory
-     *
-     * @return $this
      */
-    public function setEndMemory($endMemory)
+    public function setEndMemory(float $endMemory): self
     {
         $this->endMemory = $endMemory;
 
@@ -204,38 +181,33 @@ class Result
 
     /**
      * Get the memory spike amount of the callback.
-     *
-     * @return float
      */
-    public function getMemory()
+    public function getMemory(): float
     {
         return $this->endMemory - $this->startMemory;
     }
 
     /**
      * Get the exception thrown by the callback.
-     *
-     * @return Exception|null
      */
-    public function getException()
+    public function getException(): ?\Throwable
     {
         return $this->exception;
     }
 
     /**
      * Set the exception thrown by the callback.
-     *
-     * @param Exception|null $exception
-     *
-     * @return $this
      */
-    public function setException($exception)
+    public function setException(?\Throwable $exception): self
     {
         $this->exception = $exception;
 
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getContext()
     {
         return $this->context;
@@ -243,22 +215,16 @@ class Result
 
     /**
      * Determine whether the callback result matches the control.
-     *
-     * @return boolean
      */
-    public function isMatch()
+    public function isMatch(): bool
     {
         return $this->match;
     }
 
     /**
      * Set whether the callback result matches the control.
-     *
-     * @param boolean $match
-     *
-     * @return $this
      */
-    public function setMatch($match)
+    public function setMatch(bool $match): self
     {
         $this->match = $match;
 

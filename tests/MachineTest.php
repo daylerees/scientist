@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Scientist\Result;
 use Scientist\Machine;
@@ -107,7 +108,7 @@ class MachineTest extends \PHPUnit\Framework\TestCase
 
         $r = $m->execute();
 
-        $this->assertIsInt($r->getStartMemory());
-        $this->assertIsInt($r->getEndMemory());
+        $this->assertIsFloat($r->getStartMemory());
+        $this->assertIsFloat($r->getEndMemory());
     }
 }

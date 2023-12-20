@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Scientist\Journals;
 
@@ -15,26 +16,21 @@ class StandardJournal implements Journal
     /**
      * The executed experiment.
      *
-     * @var \Scientist\Experiment
+     * @var Experiment
      */
     protected $experiment;
 
     /**
      * The experiment report.
      *
-     * @var \Scientist\Report
+     * @var Report
      */
     protected $report;
 
     /**
      * Dispatch a report to storage.
-     *
-     * @param \Scientist\Experiment $experiment
-     * @param \Scientist\Report     $report
-     *
-     * @return mixed
      */
-    public function report(Experiment $experiment, Report $report)
+    public function report(Experiment $experiment, Report $report): void
     {
         $this->experiment = $experiment;
         $this->report     = $report;
@@ -42,20 +38,16 @@ class StandardJournal implements Journal
 
     /**
      * Get the experiment.
-     *
-     * @return \Scientist\Experiment
      */
-    public function getExperiment()
+    public function getExperiment(): Experiment
     {
         return $this->experiment;
     }
 
     /**
      * Get the experiment report.
-     *
-     * @return \Scientist\Report
      */
-    public function getReport()
+    public function getReport(): Report
     {
         return $this->report;
     }

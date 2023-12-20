@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Scientist\Matchers;
 
@@ -17,7 +18,6 @@ class ClosureMatcher implements Matcher
 
     /**
      * Create a new matcher instance based on a closure.
-     * @param \Closure $closure The closure to use
      */
     public function __construct(\Closure $closure)
     {
@@ -27,7 +27,7 @@ class ClosureMatcher implements Matcher
     /**
      * @inheritDoc
      */
-    public function match($control, $trial)
+    public function match($control, $trial): bool
     {
         return call_user_func($this->closure, $control, $trial);
     }

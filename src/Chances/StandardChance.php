@@ -1,14 +1,19 @@
 <?php
+declare(strict_types=1);
+
 namespace Scientist\Chances;
 
 class StandardChance implements Chance
 {
+    /**
+     * @var int
+     */
     private $percentage = 100;
 
     /**
      * Determine whether or not the experiment should run
      */
-    public function shouldRun()
+    public function shouldRun(): bool
     {
         if ($this->percentage == 0) {
             return false;
@@ -19,19 +24,12 @@ class StandardChance implements Chance
         return $random <= $this->percentage;
     }
 
-    /**
-     * @return int
-     */
-    public function getPercentage()
+    public function getPercentage(): int
     {
         return $this->percentage;
     }
 
-    /**
-     * @param int $percentage
-     * @return $this
-     */
-    public function setPercentage($percentage)
+    public function setPercentage(int $percentage): self
     {
         $this->percentage = $percentage;
         
